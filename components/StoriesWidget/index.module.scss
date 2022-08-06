@@ -1,4 +1,4 @@
-$width : 100px;
+$width : 150px;
 .list{
     display: flex;
     padding: .5rem;
@@ -7,29 +7,29 @@ $width : 100px;
     .innerConner{
         margin: 5px;
         border: 2px solid #ccc;
-        width: 30vw;
-        height: 40vw;
+        width: $width;
+        height: calc( $width * 6 / 4 );
         border-radius: 10px;
         max-width: $width;
-        max-height: calc( $width * 16 / 9 );
+        max-height: calc( $width * 6 / 4 );
         background-size: cover;
     }
     
 }
 .container{
 
-    ::-webkit-scrollbar-track {
+    .list::-webkit-scrollbar-track {
         border-radius: 10px;
         background-color: #ccc;
     
     }
-    ::-webkit-scrollbar{
+    .list::-webkit-scrollbar{
         width: 2px;
         background-color: #F5F5F5;
         
     }
     
-    ::-webkit-scrollbar-thumb{
+    .list::-webkit-scrollbar-thumb{
         border-radius: 2px;
     
     }
