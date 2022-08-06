@@ -30,8 +30,9 @@ export default function Home() {
 
   const [articles,setArticles] =  useState([])
   const [stories,setStories] =  useState([])
-  const [stories1,setStories1] =  useState([])
-  const [stories2,setStories2] =  useState([])
+  const [mainArticle,setMainArticle] =  useState([])
+  const [articles1,setArticles1] =  useState([])
+  const [articles2,setArticles2] =  useState([])
   const router = useRouter()
   const {state,dispatch} = useGlobalContext()
 
@@ -39,18 +40,24 @@ export default function Home() {
   useEffect(()=>{
     (async ()=>{
       const res = await getTopArticles()
-      setArticles(res.data)
+      setArticles([...res?.data,...res?.data,...res?.data,...res?.data])
       const res2 = await getStories()
       setStories(res2.data)
     })();
   },[])
 
   useEffect(()=>{
-    var first = stories.slice(0, 2);
-    var second = stories.slice(3);
-    setStories1(first)
-    setStories2(second)
-  },[stories])
+    if(articles?.length > 0){
+      const middleIndex = Math.ceil(articles.length / 2);
+      const main = articles[0] ;
+      console.log("Main",main)
+      const firstHalf = articles.splice(0, middleIndex);   
+      const secondHalf = articles.splice(-middleIndex);
+      setMainArticle(main)
+      setArticles1(firstHalf)
+      setArticles2(secondHalf)
+    }
+  },[articles])
 
 
   useEffect(() => {
@@ -93,27 +100,18 @@ export default function Home() {
         <div className={ styles.containerLight }>
           <Menu/>
           <main className={styles.main}>
-            <StoriesWidget/>
             <div className={styles.supportGrid}></div>
             <div className={styles.band}>
-            {articles && articles.length > 0 && (
-              <ArticlePreview article={articles[0]} type={1}/>
-            )}
-            {articles && articles.length >1 ? articles?.slice(1)?.map((article,index)=>{
-              return(
-                <ArticlePreview article={article} key={index} type={2}/>
-              )
-            }):(
-              <Loading/>
-            )}
-            {articles && articles.length >1 ? articles?.slice(1)?.map((article,index)=>{
-              return(
-                <ArticlePreview article={article} key={index} type={2}/>
-              )
-            }):(
-              <Loading/>
-            )}
-            {articles && articles.length >1 ? articles?.slice(1)?.map((article,index)=>{
+              {mainArticle && (
+                <ArticlePreview article={mainArticle} type={1}/>
+              )}
+              {articles1?.map((article,index)=>{
+                return(
+                  <ArticlePreview article={article} key={index} type={2}/>
+                )
+              })}
+              
+            {/* {articles && articles.length >1 ? articles?.slice(1)?.map((article,index)=>{
               return(
                 <ArticlePreview article={article} key={index} type={2}/>
               )
@@ -153,7 +151,15 @@ export default function Home() {
                   <Loading/>
                 )}
                 
-              </div>
+              </div> */}
+            </div>
+            <StoriesWidget/>
+            <div className={styles.band}>
+              {articles2?.map((article,index)=>{
+                return(
+                  <ArticlePreview article={article} key={index} type={2}/>
+                )
+              })}
             </div>
           </main>
 
