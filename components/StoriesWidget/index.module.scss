@@ -8,7 +8,7 @@ $width : 150px;
     background-color: #fff;
     margin-top: 5px;
     margin-bottom: 5px;
-    padding-bottom: 10px;
+    padding-bottom: 50px;
     .innerConner{
         margin: 5px;
         width: $width;
@@ -22,9 +22,12 @@ $width : 150px;
     
 }
 .container{
-    padding-top: 1px;
-    padding-bottom: 1px;
-    background-color: #ccc;
+    @media only screen and (max-width: 500px) {
+        padding-top: 1px;
+        padding-bottom: 1px;
+        background-color: #ccc;
+    }
+    
     .box{
         background-color: #fff;
         h1{
