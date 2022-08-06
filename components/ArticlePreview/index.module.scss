@@ -1,97 +1,97 @@
-.card{
-    // box-shadow: 0.25rem 0.25rem 1.25rem rgba(66,95,255,.1);
-    width: 45%;
-    max-width: 310px;
-    min-width: 310px;
-    border-radius: 10px;
-    max-width: 40%;
-    margin: 1rem;
-    @media (max-width: 500px) {
-        width: calc(100vw - 1.5rem );
-        min-width: calc(100vw - 1.5rem );
-        margin: .5rem;
-    }
-    img{
-        background-color: #f3f3f3;
-        min-width: 100px;
-        height: max-content;
-        border-radius:10px;
-        overflow: hidden;
-        margin: 10px;
-    }
-    .meta{
-        display: flex;
-        flex-direction: column;
-        min-height: calc( 100px + 1rem );
-        justify-content: space-between;
-        border-bottom: 1px solid #ccc;
-        padding-bottom: 1rem;
-    }
-    h1{
-        font-size: 1.2rem;
-        font-weight: normal;
-        display: -webkit-box;
-        -webkit-line-clamp: 1; /*No of lines after which the ellipsis needs to be added*/
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-        margin: 0;
-        color: #021425;
-        line-height: 1.11111;
-        letter-spacing: .2px;
-        font-weight: 700;
-        margin-top: .5rem;
-        margin-bottom: .5rem;
-    }
-    .cat{
-        // color: var(--color-secondary-light);
-        // padding: 0 1rem;
-        // border-radius: 10px;
-        // border-top-left-radius: 0px;
-        // border-bottom-right-radius: 0px;
-        color: #808992;
-        letter-spacing: 1.4px;
-        font: 400 0.8125rem/2.0625 Inconsolata,verdana,sans-serif;
-        margin-top: .5rem;
-        
-    }
-    .foot{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        font-size: .9rem;
-        
-    }
 
+.item1{
+   
+    @media only screen and (min-width: 500px) {
+        grid-column: 1/ span 2;
+        h1 {
+          font-size: 30px;
+        }
+    }
+}
+.item1,.item2 {
+    @media only screen and (max-width: 500px) {
+        padding-top: 5px;
+    }
+    .head{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        h4{
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .icon{
+            border: 1px solid #999;
+            width: 50px;
+            height: 50px;
+            min-width: 50px;
+            margin-right: .5rem;
+            border-radius: 25px;
+        }
+        
+    }
     p{
         display: -webkit-box;
-        -webkit-line-clamp: 3; /*No of lines after which the ellipsis needs to be added*/
+        -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
         overflow: hidden;
-        font-size: 1rem;
+        margin-bottom: 0;
     }
-    .descs{
-        margin-top: 10px;
-        margin-bottom: 10px;
-        margin-right: 10px;
-        .textWithColor{
-            display: flex;
-            align-items: center;
-            .color{
-                width: 4px;
-                height: 15px;
-                background-color: var(--color-primary-light);
-                margin-right: 5px;
-            }
-        }
-        h3{  
-            font-size: .875rem;
-            line-height: 1.125rem;
-            margin-right: 0.75rem;
-            text-transform: none;
-            white-space: normal;
-            font-weight: 600!important;
-            font-family: Montserrat,sans-serif;
-            color: #2b2c2e;
-        }
+    .card {
+        min-height: 100%;
+        background: white;
+        display: flex;
+        flex-direction: column;
+        text-decoration: none;
+        color: #444;
+        position: relative;
+        top: 0;
+        transition: all .1s ease-in;
     }
+    
+    .card:hover {
+        top: -2px;
+        box-shadow: 0 4px 5px rgba(0,0,0,0.2);
+    }
+    
+    .card article {
+        padding: 20px;
+        display: flex;
+        
+        flex: 1;
+        justify-content: space-between;
+        flex-direction: column;
+        
+    }
+    .card .thumb {
+        padding-bottom: 60%;
+        background-size: cover;
+        background-position: center center;
+    }
+    
+    .card p { 
+        flex: 1; /* make p grow to fill available space*/
+        line-height: 1.4;
+    }
+    
+    /* typography */
+    h1 {
+        font-size: 20px;
+        margin: 0;
+        color: #333;
+    }
+    
+    .card span {
+        font-size: 12px;
+        font-weight: bold;
+        color: #999;
+        text-transform: uppercase;
+        letter-spacing: .05em;
+        margin: 2em 0 0 0;
+    }
+}
+.item1 h1 {
+    font-size: 30px;
 }

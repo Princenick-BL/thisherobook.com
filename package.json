@@ -28,6 +28,7 @@
     "react-dom": "18.1.0",
     "react-material-ui-carousel": "^3.4.2",
     "react-responsive-carousel": "^3.2.23",
+    "read-more-react": "^1.0.10",
     "sass": "^1.52.1"
   },
   "devDependencies": {

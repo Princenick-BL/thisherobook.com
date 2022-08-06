@@ -96,28 +96,11 @@ export default function Home() {
             <div className={styles.supportGrid}></div>
             <div className={styles.band}>
             {articles && articles.length > 0 && (
-              <div className={styles.item1}>
-                <a href={`/${articles[0].category.toLowerCase()}/article/${articles[0]?._id}/${articles[0]?.slug}`} className={styles.card}>
-                  <div className={styles.thumb} style={{backgroundImage: `url(${articles[0]?.poster})`}}></div>
-                  <article>
-                    <h1>{`${articles[0]?.title}`}</h1>
-                    <span>{`${articles[0]?.category}`}</span>
-                  </article>
-                </a>
-              </div>
+              <ArticlePreview article={articles[0]} type={1}/>
             )}
             {articles && articles.length >1 ? articles?.slice(1)?.map((article,index)=>{
               return(
-               
-                <div className={styles.item3} key={index}>
-                  <a href={`/${article.category.toLowerCase()}/article/${article?._id}/${article?.slug}`} className={styles.card}>
-                    <div className={styles.thumb} style={{backgroundImage: `url(${article?.poster})`}}></div>
-                    <article>
-                      <h1>{`${article?.title}`}</h1>
-                      <span>{`${article?.category}`}</span>
-                    </article>
-                  </a>
-                </div> 
+                <ArticlePreview article={article} key={index} type={2}/>
               )
             }):(
               <Loading/>
