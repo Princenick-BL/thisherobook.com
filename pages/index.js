@@ -48,11 +48,10 @@ export default function Home() {
 
   useEffect(()=>{
     if(articles?.length > 0){
-      const middleIndex = Math.ceil(articles.length / 2);
-      const main = articles[0] ;
-      console.log("Main",main)
+      const middleIndex = 4;
+      const [main] = articles.splice(0, 1) ;
       const firstHalf = articles.splice(0, middleIndex);   
-      const secondHalf = articles.splice(-middleIndex);
+      const secondHalf = articles.splice(0,articles?.length);
       setMainArticle(main)
       setArticles1(firstHalf)
       setArticles2(secondHalf)
@@ -101,63 +100,28 @@ export default function Home() {
           <Menu/>
           <main className={styles.main}>
             <div className={styles.supportGrid}></div>
-            <div className={styles.band}>
+            <div className={styles.wrapper}>
               {mainArticle && (
-                <ArticlePreview article={mainArticle} type={1}/>
+                <div >
+                  <ArticlePreview article={mainArticle} type={1}/>
+                </div>
               )}
               {articles1?.map((article,index)=>{
                 return(
-                  <ArticlePreview article={article} key={index} type={2}/>
+                  <div key={index}>
+                    <ArticlePreview article={article} key={index} type={2}/>
+                  </div>
                 )
               })}
-              
-            {/* {articles && articles.length >1 ? articles?.slice(1)?.map((article,index)=>{
-              return(
-                <ArticlePreview article={article} key={index} type={2}/>
-              )
-            }):(
-              <Loading/>
-            )}
-            {articles && articles.length >1 ? articles?.slice(1)?.map((article,index)=>{
-              return(
-                <ArticlePreview article={article} key={index} type={2}/>
-              )
-            }):(
-              <Loading/>
-            )}
-            </div>
-            <br></br>
-            <div className={styles.stories}>
-              {(stories && stories.length > 2 ) &&
-                <h3 className={styles.h3}><TabletOutlined/> Top stories</h3>
-              }
-              <div className={styles.storyList}>
-              {stories2 ? (
-                <>
-                {stories2.length > 0 && stories2?.map((storie,index)=>{
-                  return(
-                      <StoryPreview
-                        key={index}
-                        title={storie?.title}
-                        img={storie?.poster}
-                        logo={"https://picsum.photos/50/50"}
-                        url={`/web-story/${storie?._id}/${storie?.slug}`}
-                      />
-                  )
-                })
-                }
-                </>
-              ) :(
-                  <Loading/>
-                )}
-                
-              </div> */}
+             
             </div>
             <StoriesWidget/>
-            <div className={styles.band}>
+            <div className={styles.wrapper2}>
               {articles2?.map((article,index)=>{
                 return(
-                  <ArticlePreview article={article} key={index} type={2}/>
+                  <div key={index}>
+                   <ArticlePreview article={article} key={index} type={2}/>
+                  </div>
                 )
               })}
             </div>

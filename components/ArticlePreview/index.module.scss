@@ -1,5 +1,5 @@
 
-.item1,.item2 {
+.item{
     @media only screen and (max-width: 500px) {
         padding-top: 5px;
     }
@@ -82,24 +82,3 @@
 }
 
 
-.item1{
-   
-    @media only screen and (min-width: 500px) {
-        grid-column: 1/ span 2;
-        h4 {
-          font-size: 30px;
-        }
-    }
-}
-.item2{
-    height: fit-content;
-    h4{
-        font-size: 1rem;
-    }
-    // .card{
-
-    //     display: flex;
-    //     flex-direction: row-reverse;
-        
-    // }
-}
