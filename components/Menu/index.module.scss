@@ -1,0 +1,108 @@
+.header{
+    height: 60px;
+    //background-color: greenyellow;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #f3f3f3f3;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background-color: #fff;
+    .head{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        .button{
+            font-size: 1.7rem;
+            margin-left: 1rem;
+            cursor: pointer;
+            color: #253b56;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            .text{
+                font-size: .7rem;
+                font-weight: bold;
+                margin-top: - .3rem;
+            }
+        }
+        .content{
+            width: 100%;
+            font-size: 1rem !important;
+            font-family: Dancing Script ,cursive;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            h1{
+                margin: 0;
+                margin-left: -30px;
+                font-size: 1.5rem;         
+                background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #cb9b51 45%, #cb9b51 50%, #cfb844 55%, #cb9b51 78%, #462523 100%);
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+                
+            }
+        }
+    }
+    .active{
+        display: flex;
+        animation: openModal 0.4s ease-out forwards;
+    }
+    .innactive{
+        display: none;
+        animation: closeModal 0.4s ease-in forwards;
+    }
+    .shadow{
+        background-color: rgba(0,0,0,0.5);
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        .side{
+            display: none;
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            display: flex !important;
+            flex-direction: column;
+            top: 0;
+            left: 0;
+            //display: none;
+            background-color: #fff;
+            z-index: 10;
+            max-width: 300px;
+            border-right: 1px solid #f3f3f3f3;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+         
+            .text{
+    
+                h4{
+                    font-size: 2em;
+                }
+                ul{
+                    list-style-type: none;
+                    margin: 0;
+                    padding: 0;
+                    li{
+                        margin: 0 0 2rem;
+                        text-transform : to-upper-case;
+                    }
+                }
+            }
+            
+        }
+    }
+    @keyframes openModal {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(0);   }
+    }
+    
+    @keyframes closeModal {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-100%);}
+    }
+}

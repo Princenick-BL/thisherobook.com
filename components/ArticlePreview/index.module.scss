@@ -1,0 +1,97 @@
+.card{
+    // box-shadow: 0.25rem 0.25rem 1.25rem rgba(66,95,255,.1);
+    width: 45%;
+    max-width: 310px;
+    min-width: 310px;
+    border-radius: 10px;
+    max-width: 40%;
+    margin: 1rem;
+    @media (max-width: 500px) {
+        width: calc(100vw - 1.5rem );
+        min-width: calc(100vw - 1.5rem );
+        margin: .5rem;
+    }
+    img{
+        background-color: #f3f3f3;
+        min-width: 100px;
+        height: max-content;
+        border-radius:10px;
+        overflow: hidden;
+        margin: 10px;
+    }
+    .meta{
+        display: flex;
+        flex-direction: column;
+        min-height: calc( 100px + 1rem );
+        justify-content: space-between;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 1rem;
+    }
+    h1{
+        font-size: 1.2rem;
+        font-weight: normal;
+        display: -webkit-box;
+        -webkit-line-clamp: 1; /*No of lines after which the ellipsis needs to be added*/
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        margin: 0;
+        color: #021425;
+        line-height: 1.11111;
+        letter-spacing: .2px;
+        font-weight: 700;
+        margin-top: .5rem;
+        margin-bottom: .5rem;
+    }
+    .cat{
+        // color: var(--color-secondary-light);
+        // padding: 0 1rem;
+        // border-radius: 10px;
+        // border-top-left-radius: 0px;
+        // border-bottom-right-radius: 0px;
+        color: #808992;
+        letter-spacing: 1.4px;
+        font: 400 0.8125rem/2.0625 Inconsolata,verdana,sans-serif;
+        margin-top: .5rem;
+        
+    }
+    .foot{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        font-size: .9rem;
+        
+    }
+
+    p{
+        display: -webkit-box;
+        -webkit-line-clamp: 3; /*No of lines after which the ellipsis needs to be added*/
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        font-size: 1rem;
+    }
+    .descs{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-right: 10px;
+        .textWithColor{
+            display: flex;
+            align-items: center;
+            .color{
+                width: 4px;
+                height: 15px;
+                background-color: var(--color-primary-light);
+                margin-right: 5px;
+            }
+        }
+        h3{  
+            font-size: .875rem;
+            line-height: 1.125rem;
+            margin-right: 0.75rem;
+            text-transform: none;
+            white-space: normal;
+            font-weight: 600!important;
+            font-family: Montserrat,sans-serif;
+            color: #2b2c2e;
+        }
+    }
+}

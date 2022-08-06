@@ -1,0 +1,103 @@
+.container{
+    max-height: max-content;
+    //overflow-x: scroll;
+    max-width: 700px;
+    margin: 0px auto;
+    margin-bottom: 0;
+    button{
+        background-color: transparent;
+        border: none;
+        outline: none;
+        padding: 1px 6px;
+    }
+    .box{
+        margin: .5rem;
+        display: flex;
+        align-items: center;
+        background-color: #fff;
+        border-radius: 15px;
+        box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(243, 243, 243, 0.9529411765) 0px 0px 0px 1px;
+        max-height: 170px;
+        position: relative;
+        .topic{
+            position: absolute;
+            right: 1rem;
+            top: .5rem;
+            font-style: italic;
+            font-size: 1rem;
+            background-image: linear-gradient(to right, #462523 0, #cb9b51 22%, #cb9b51 45%, #cb9b51 50%, #cfb844 55%, #cb9b51 78%, #462523 100%);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .img{
+            width: 40vw;
+            max-width: 150px;
+            max-height: 150px;
+            margin: .5rem;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-right: .5rem;
+            align-items: center;
+        }
+
+        .info{
+            width: 90%;
+            max-width: 450px;
+            @media (max-width: 500px) {
+                width: 60vw;
+                max-width: 300px;
+            }
+            bottom: auto;
+            left: auto;
+            transform: none;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin: 0rem auto;
+            font-family: Montserrat, arial, sans-serif;
+            .cat{
+                line-height: 1.11111;
+                margin: 0;
+                margin-bottom: .5rem;
+                font-family: Crimson Text,times,serif;
+                font-weight: 600;
+                font-size: 1rem;
+                color: #021425;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                
+            }
+            p{
+                color: #021425;
+                font-size: 1rem;
+                line-height: 1.11111;
+                opacity: .85;
+                font: 400  Crimson Text,times,serif;
+                letter-spacing: normal;
+                //padding-top: 0.5rem;
+                //margin-bottom: 1.5rem;
+                display: -webkit-box;
+                -webkit-line-clamp: 3; /*No of lines after which the ellipsis needs to be added*/
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                margin: 0;
+            }
+            
+            .link{
+                margin-top: .5rem;
+                color: rgb(30, 30, 201);
+                //border: 1px solid #021425;
+                font: 400 1rem/1.11111 Inconsolata,verdana,sans-serif;
+                text-transform: uppercase;
+                //padding: 10px 15px;
+                opacity: .85;
+                cursor: pointer;
+                width: max-content;
+            }
+            
+        }
+    }
+    
+}
+
