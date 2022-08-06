@@ -93,10 +93,32 @@ export default function Home() {
         <div className={ styles.containerLight }>
           <Menu/>
           <main className={styles.main}>
+            <StoriesWidget/>
             <div className={styles.supportGrid}></div>
             <div className={styles.band}>
             {articles && articles.length > 0 && (
               <ArticlePreview article={articles[0]} type={1}/>
+            )}
+            {articles && articles.length >1 ? articles?.slice(1)?.map((article,index)=>{
+              return(
+                <ArticlePreview article={article} key={index} type={2}/>
+              )
+            }):(
+              <Loading/>
+            )}
+            {articles && articles.length >1 ? articles?.slice(1)?.map((article,index)=>{
+              return(
+                <ArticlePreview article={article} key={index} type={2}/>
+              )
+            }):(
+              <Loading/>
+            )}
+            {articles && articles.length >1 ? articles?.slice(1)?.map((article,index)=>{
+              return(
+                <ArticlePreview article={article} key={index} type={2}/>
+              )
+            }):(
+              <Loading/>
             )}
             {articles && articles.length >1 ? articles?.slice(1)?.map((article,index)=>{
               return(

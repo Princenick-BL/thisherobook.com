@@ -1,13 +1,4 @@
 
-.item1{
-   
-    @media only screen and (min-width: 500px) {
-        grid-column: 1/ span 2;
-        h1 {
-          font-size: 30px;
-        }
-    }
-}
 .item1,.item2 {
     @media only screen and (max-width: 500px) {
         padding-top: 5px;
@@ -18,7 +9,6 @@
         align-items: center;
         h4{
             display: -webkit-box;
-            -webkit-line-clamp: 1;
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
@@ -38,9 +28,9 @@
         -webkit-box-orient: vertical;
         overflow: hidden;
         margin-bottom: 0;
+        flex: none;
     }
     .card {
-        min-height: 100%;
         background: white;
         display: flex;
         flex-direction: column;
@@ -49,6 +39,8 @@
         position: relative;
         top: 0;
         transition: all .1s ease-in;
+        box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+
     }
     
     .card:hover {
@@ -59,9 +51,6 @@
     .card article {
         padding: 20px;
         display: flex;
-        
-        flex: 1;
-        justify-content: space-between;
         flex-direction: column;
         
     }
@@ -72,7 +61,6 @@
     }
     
     .card p { 
-        flex: 1; /* make p grow to fill available space*/
         line-height: 1.4;
     }
     
@@ -92,6 +80,26 @@
         margin: 2em 0 0 0;
     }
 }
-.item1 h1 {
-    font-size: 30px;
+
+
+.item1{
+   
+    @media only screen and (min-width: 500px) {
+        grid-column: 1/ span 2;
+        h4 {
+          font-size: 30px;
+        }
+    }
+}
+.item2{
+    height: fit-content;
+    h4{
+        font-size: 1rem;
+    }
+    // .card{
+
+    //     display: flex;
+    //     flex-direction: row-reverse;
+        
+    // }
 }

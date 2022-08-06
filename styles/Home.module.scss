@@ -8,12 +8,13 @@
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: auto;
+    grid-template-rows: masonry;
     @media only screen and (min-width: 500px) {
       grid-gap: 20px;
+      padding: 1rem;
     }
     @media only screen and (max-width: 500px) {
-      background-color: rgb(171, 171, 171);
+      background-color: #ccc;
     }
 
   }
