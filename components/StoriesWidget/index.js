@@ -15,7 +15,56 @@ export default function StoriesWidget() {
     },[])
 
     return (
+      <div className={styles.container}>
         <div className={styles.list}>
+            {stories ? stories?.map((story,index)=>{
+              return(
+                  <a key={index} href={`/web-story/${story?._id}/${story?.slug}`} target={"_blank"} rel="noreferrer">
+                    <div  className={styles.outerCorner}>
+                        <div 
+                            className={styles.innerConner}
+                            style={{backgroundImage:`url(${story?.poster})`}}
+                        ></div>
+                    </div>
+
+                  </a>
+                
+              )
+            }):(
+              <Loading/>
+            )}
+            {stories ? stories?.map((story,index)=>{
+              return(
+                  <a key={index} href={`/web-story/${story?._id}/${story?.slug}`} target={"_blank"} rel="noreferrer">
+                    <div  className={styles.outerCorner}>
+                        <div 
+                            className={styles.innerConner}
+                            style={{backgroundImage:`url(${story?.poster})`}}
+                        ></div>
+                    </div>
+
+                  </a>
+                
+              )
+            }):(
+              <Loading/>
+            )}
+            {stories ? stories?.map((story,index)=>{
+              return(
+                  <a key={index} href={`/web-story/${story?._id}/${story?.slug}`} target={"_blank"} rel="noreferrer">
+                    <div  className={styles.outerCorner}>
+                        <div 
+                            className={styles.innerConner}
+                            style={{backgroundImage:`url(${story?.poster})`}}
+                        ></div>
+                    </div>
+
+                  </a>
+                
+              )
+            }):(
+              <Loading/>
+            )}
             {stories ? stories?.map((story,index)=>{
               return(
                   <a key={index} href={`/web-story/${story?._id}/${story?.slug}`} target={"_blank"} rel="noreferrer">
@@ -34,5 +83,6 @@ export default function StoriesWidget() {
             )}
             
         </div>
+      </div>
     )
 }
