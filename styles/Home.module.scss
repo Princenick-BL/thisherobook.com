@@ -3,16 +3,19 @@
 
   margin: 80px auto;
   max-width: 1224px;
+  @media only screen and (min-width: 500px) {
+    padding: 1rem;
+  }
   .wrapper {
 
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, minmax(130px, 130px));
-    grid-gap: 10px;
+    grid-gap: 7px;
     @media only screen and (max-width: 500px) {
       grid-template-columns: 1fr;
       grid-template-rows: auto;
-
+      background-color: #ccc;
     }
   }
   .wrapper div{
@@ -69,10 +72,11 @@
     grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: auto;
     grid-gap: 10px;
+    grid-gap: 7px;
     @media only screen and (max-width: 500px) {
       grid-template-columns: 1fr;
       grid-template-rows: auto;
-
+      background-color: #ccc;
     }
   }
 }
