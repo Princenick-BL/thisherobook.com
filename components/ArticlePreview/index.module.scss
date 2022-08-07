@@ -47,7 +47,9 @@
     
     .card:hover {
         top: -2px;
-        box-shadow: 0 4px 5px rgba(0,0,0,0.2);
+        @media only screen and (min-width: 500px) {
+            box-shadow: 0 4px 5px rgba(0,0,0,0.2);
+        }
     }
     
     .card article {
@@ -120,6 +122,8 @@
     }
     
     @media only screen and (max-width: 500px) {
+        border-bottom: 1px solid #ccc;
+        margin-top: 2rem;
         .head{
             display: flex;
             justify-content: flex-start;
@@ -159,9 +163,7 @@
     
         }
         
-        .card:hover {
-            top: -2px;
-        }
+
         
         .card article {
             padding: 10px;
