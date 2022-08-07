@@ -45,35 +45,21 @@ export function HomeMenu() {
                             <ul className="list-reset m0 p0 ampstart-label">
                                 <li className="ampstart-nav-item" onClick={(e)=>{setShow(false)}}>
                                     <Link href={"/"} >
-                                        <a className="ampstart-nav-link">HOME</a>
+                                        <a className="ampstart-nav-link">Articles</a>
                                     </Link>
                                 </li>
                                 <li className="ampstart-nav-item" onClick={(e)=>{setShow(false)}}>
                                     <Link href={"/"} >
-                                        <a className="ampstart-nav-link">Articles</a>
+                                        <a className="ampstart-nav-link">Stories</a>
                                     </Link>
                                     
                                 </li>
                                 <li className="ampstart-nav-item" onClick={(e)=>{setShow(false)}}>
                                     <Link href={"/"} >
-                                        <a className="ampstart-nav-link">Web Story</a>
+                                        <a className="ampstart-nav-link">NEWSLETTER</a>
                                     </Link>
                                 </li>
-                                <li className="ampstart-nav-item" onClick={(e)=>{setShow(false)}}>
-                                    <Link href={"/article/category/Cars"} >
-                                        <a className="ampstart-nav-link">CARS</a>
-                                    </Link>
-                                </li>
-                                <li className="ampstart-nav-item" onClick={(e)=>{setShow(false)}}>
-                                    <Link href={"/article/category/Jewelry"} >
-                                        <a className="ampstart-nav-link" >JEWELRY</a>
-                                    </Link>
-                                </li>
-                                <li className="ampstart-nav-item" onClick={(e)=>{setShow(false)}}>
-                                    <Link href={"/article/category/Houses"}>
-                                        <a className="ampstart-nav-link" >Houses</a>
-                                    </Link>
-                                </li>
+                                
                             </ul>
                         </nav>
 

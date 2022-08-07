@@ -110,8 +110,8 @@ export default function Home() {
               <div className={styles.wrapper1Item}>
                 {articles1?.map((article,index)=>{
                   return(
-                    <div key={index} >
-                      <ArticlePreview article={article} key={index} type={2}/>
+                    <div key={index} style={{minWidth:"200px"}} >
+                      <ArticlePreview article={article} key={index} num={index} type={2}/>
                     </div>
                   )
                 })}

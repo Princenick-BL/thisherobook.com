@@ -6,42 +6,29 @@ export default function BlogHead({poster,publishedAt,description}) {
     
   return (
     <Head>
-        <link rel="preconnect" href="https://fonts.googleapis.com"/>
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin/>
+      <meta charset="utf-8"/>
+      <meta name="viewport" content="width=device-width"/>
+      <meta name="description" content="This is the AMP Boilerplate."/>
+      <link rel="preload" as="script" href="https://cdn.ampproject.org/v0.js"/>
+      <link rel="preload" as="script" href="https://cdn.ampproject.org/v0/amp-experiment-0.1.js"/>
+      <link rel="preconnect dns-prefetch" href="https://fonts.gstatic.com/" crossOrigin/>
+      <script async src="https://cdn.ampproject.org/v0.js"></script>
+      <script async custom-element="amp-experiment" src="https://cdn.ampproject.org/v0/amp-experiment-0.1.js"></script>
+
         <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet"/>
-        <script
-            async
-            custom-element="amp-carousel"
-            src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"
-        ></script>
         <script
             async
             custom-element="amp-sidebar"
             src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"
         ></script>
-        <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1"/>
 
-        <style amp-custom>{`
-    
-            html {
-                font-family: sans-serif;
-                line-height: 1.15;                
-            }
-            body {
-                margin: 0;
-                color: rgba(0, 0, 0, 0.85);
-                font-size: 16px;
-                font-variant: tabular-nums;
-                line-height: 2 ;
-                background-color: #fff;
-            }`}
-        </style>
+       
         
         <style amp-boilerplate>
             {"body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}"}       
         </style>
 
-        <style>{`
+        <style amp-custom>{`
     
             html {
                 font-family: sans-serif;
@@ -1850,7 +1837,7 @@ export default function BlogHead({poster,publishedAt,description}) {
             }
         `}
         </style>
-        <style>{`
+        <style amp-custom>{`
         .ql-container{
             padding: 1rem;
           }

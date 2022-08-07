@@ -47,23 +47,21 @@
     
     .card:hover {
         top: -2px;
-        @media only screen and (min-width: 500px) {
-            box-shadow: 0 4px 5px rgba(0,0,0,0.2);
-        }
+       
     }
     
     .card article {
         padding: 10px;
         padding-top: 20px;
         display: flex;
+        flex: 1;
+        justify-content: space-between;
         flex-direction: column;
-        flex: 1;  
     }
     .card .thumb {
-        padding-bottom: 60%;
         background-size: cover;
         background-position: center center;
-        border-radius: 15px;
+        border-radius: 10px;
     }
     
     .card p { 
@@ -169,14 +167,14 @@
             padding: 10px;
             padding-top: 20px;
             display: flex;
-            flex-direction: column;
-            flex: 1;  
+            flex: 1;
+            justify-content: space-between;
+            flex-direction: column; 
         }
         .card .thumb {
-            padding-bottom: 60%;
             background-size: cover;
             background-position: center center;
-            border-radius: 15px;
+            border-radius: 10px;
         }
         
         .card p { 

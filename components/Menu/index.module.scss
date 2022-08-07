@@ -43,10 +43,12 @@
             margin: 0 auto;
             max-width: 1224px;
             flex-direction: row;
+            
             @media only screen and (max-width: 500px) {
                 justify-content: center;
             }
             .flexCenter{
+                
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -61,10 +63,18 @@
                 @media only screen and (max-width: 500px) {
                     margin-left: -51px;
                 }
-                h1{
-                    margin: 0;
-                    font-size: inherit;                   
+                h1 {
+                    color: #fff;
+                    overflow: hidden; /* Ensures the content is not revealed until the animation */
+                    white-space: nowrap; /* Keeps the content on a single line */
+                    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+                    border-right: .15em solid orange; /* The typwriter cursor */
+                    font-size: 1.5rem;
+                    animation: typewriter 4s steps(44) 1s 1 normal both,
+                    blinkTextCursor 500ms steps(44) infinite normal;
                 }
+                /* Animation */
+                
             }
             ul{
                 display: flex;
@@ -72,6 +82,7 @@
                 list-style-type: none;
                 margin: 0;
                 padding: 0;
+                animation: hideContent .2s ease-out forwards;
                 @media only screen and (max-width: 500px) {
                     display: none;
                 }
@@ -91,6 +102,26 @@
                 @media only screen and (max-width: 500px) {
                     display: none;
                 }
+            }
+        }
+        @keyframes typewriter{
+            from{width: 0;}
+            to{width: 5em;}
+        }
+        @keyframes blinkTextCursor{
+            from{
+                border-right-color: transparent;
+            }
+            to{
+                border-right-color: transparent;
+            }
+        }
+        @keyframes hideContent{
+            from{
+                display: none;
+            }
+            to{
+                display: flex;
             }
         }
     }

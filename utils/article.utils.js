@@ -15,7 +15,7 @@ export const getSection = (section) =>{
                         width={section?.meta?.width}
                         height={section?.meta?.height}
                         layout="responsive"
-                        alt={section?.meta?.alt}
+                        alt={section?.meta?.alt||"new image"}
                         className="mb4 mx3 br5"
                     ></amp-img>
                 )

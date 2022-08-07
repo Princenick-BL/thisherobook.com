@@ -1,55 +1,62 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import styles from './index.module.scss'
 import Image from 'next/image'
 import { categories } from '../../constants'
 import ReadMoreReact from 'read-more-react';
 
-export default class ArticlePreview extends Component {
-  render() {
-    return (
-      <div className={this.props.type == 2 ?  styles.item1 : styles.item} >
-        <a href={`/${this.props.article?.category?.toLowerCase()}/article/${this.props.article?._id}/${this.props.article?.slug}`} className={styles.card}>
-          <div className={styles.thumb} style={{backgroundImage: `url(${this.props.article?.poster})`}}></div>
+
+export default function ArticlePreview({article,type}) {
+
+  const [size,setSize]=useState(
+    {
+      width:200*16/9, 
+      height : 200
+    }
+  )
+
+  type=== 2 && console.log(size)
+
+  return (
+    <div className={type == 2 ?  styles.item1 : styles.item} >
+      {article && (
+
+        <a href={`/${article?.category?.toLowerCase()}/article/${article?._id}/${article?.slug}`} className={styles.card}>
+          {article?.poster  &&
+          <div  className={styles.thumb}>
+            <Image 
+              className={styles.thumb}
+              src={article?.poster}
+              height={size.height }
+              width={size.width }
+              onLoad={(e) =>{ 
+                if(e.naturalWidth && e.naturalHeight){
+                  setSize({
+                    width : e.naturalWidth,
+                    height : e.naturalHeight
+                  })
+                }
+              }}
+              layout={"responsive"}
+              style={{minWidth:"150px"}}
+            />
+          </div>
+          }
+          {/* <div className={styles.thumb} style={{backgroundImage: `url(${article?.poster})`}}></div> */}
           <article>
             <div className={styles.head}>
               <div className={styles.icon}>
 
               </div>
               <div>
-                <span>{`${this.props.article?.category}`}</span>
-                <h4>{`${this.props.article?.title}`}</h4>
+                <span>{`${article?.category}`}</span>
+                <h4>{`${article?.title}`}</h4>
               </div>
             </div>
-            <p>{`${this.props.article?.description}`}</p>
+            <p>{`${article?.description}`}</p>
           </article>
         </a>
+      )}
       </div>
-    )
-  }
+  )
 }
 
-export class ArticlePreviewSmall extends Component {
-  render() {
-    return (
-      <div className={(this.props.type == 1) ? styles.item1 : styles.item2}>
-        <a href={`/${this.props.article.category.toLowerCase()}/article/${this.props.article?._id}/${this.props.article?.slug}`} className={styles.card}>
-          <article>
-            <div className={styles.head}>
-              <div className={styles.icon}>
-
-              </div>
-              <div>
-                <span>{`${this.props.article?.category}`}</span>
-                <h4>{`${this.props.article?.title}`}</h4>
-              </div>
-            </div>
-            
-            <p>{`${this.props.article?.description}`}</p>
-
-          </article>
-          <div className={styles.thumb} style={{backgroundImage: `url(${this.props.article?.poster})`}}></div>
-        </a>
-      </div>
-    )
-  }
-}
