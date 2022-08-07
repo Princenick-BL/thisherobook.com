@@ -99,6 +99,7 @@ export default function Home() {
         <div className={ styles.containerLight }>
           <Menu/>
           <main className={styles.main}>
+
             <div className={styles.supportGrid}></div>
             <div className={styles.wrapper}>
               {mainArticle && (

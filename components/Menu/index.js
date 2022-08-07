@@ -1,6 +1,7 @@
 import React , {useState,useEffect} from 'react'
 import Link from 'next/link'
 import styles from './index.module.scss'
+import Logo from '../Logo'
 
 export function HomeMenu() {
 
@@ -18,12 +19,17 @@ export function HomeMenu() {
                     </div>
                 </div>
                 <div className={styles.content}>
-                    <h1>{`</Discover AI`}</h1>
+                    <div className={styles.flexCenter}>
+                        <Logo/>
+                        <h1>{`iscover AI`}</h1>
+                    </div>
                     <ul>
                         <li><a href='#'>ARTICLES</a></li>
                         <li><a href='#'>STORIES</a></li>
                         <li><a href='#'>NEWSLETTER</a></li>
                     </ul>
+                    <input className={styles.search} type={"search"} placeholder="Search ..."/>
+
                 </div>
             </div>
             {show &&
