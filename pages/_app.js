@@ -8,9 +8,7 @@ import {GlobalProvider} from '../GlobalContext'
 function MyApp({ Component, pageProps }) {
   return (
     <GlobalProvider>
-      <WaitingPage>
         <Component {...pageProps} />
-      </WaitingPage>
     </GlobalProvider>
   )
 }
