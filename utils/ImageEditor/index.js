@@ -1,7 +1,7 @@
 import React ,{useState,useEffect} from 'react'
 import styles from './index.module.scss'
 import Image from 'next/image'
-import { uploadfile } from '../../services/files'
+import { uploadfile } from '../../services/files-editor'
 import { useArticleContext } from '../../contexts/article.context'
 
 export default function ImageEditor({imageProps,edit,setEdit,index}) {

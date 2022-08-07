@@ -5,7 +5,7 @@ import {
     EditFilled
 } from '@ant-design/icons';
 import { useArticleContext } from '../../contexts/article.context'
-import { uploadfile } from '../../services/files';
+import { uploadfile } from '../../services/files-editor';
 
 export default function HeaderEditor(props) {
 
