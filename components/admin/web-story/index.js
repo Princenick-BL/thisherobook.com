@@ -15,7 +15,7 @@ export default function WebStory() {
       const res = await getStories();
       setStories(res.data)
     })();
-  },[])
+  },['init'])
 
   return (
     <Fragment>
@@ -53,7 +53,7 @@ export default function WebStory() {
                     </div>
 
                 </div>
-                <div className={styles.button}><a target={"_blank"} href={`/story-editor?key=`+item?._id}>
+                <div className={styles.button}><a target={"_blank"} rel="noreferrer" href={`/story-editor?key=`+item?._id}>
                 Edit
                 </a></div>
             </div>

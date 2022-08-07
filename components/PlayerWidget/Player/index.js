@@ -76,7 +76,7 @@ export default function PlayerWidget() {
             player.play();
             player.unmute();
         })
-    },[])
+    },['init'])
 
     return (
          <div

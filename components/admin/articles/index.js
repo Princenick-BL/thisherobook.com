@@ -15,7 +15,7 @@ export default function Articles() {
       const res = await getArticles();
       setArticles(res.data)
     })();
-  },[])
+  },['init'])
 
   return (
     <Fragment>
@@ -53,7 +53,7 @@ export default function Articles() {
                     </div>
 
                 </div>
-                <div className={styles.button}><a target={"_blank"} href={`/editor?key=`+item?._id}>
+                <div className={styles.button}><a target={"_blank"} rel="noreferrer" href={`/editor?key=`+item?._id}>
                 Edit
                 </a></div>
             </div>

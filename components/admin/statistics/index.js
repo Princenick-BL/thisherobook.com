@@ -34,7 +34,7 @@ function Statistics() {
       const gapi = await import('gapi-script').then((pack) => pack.gapi);
       gapi.load('client:auth2',init)
     })();
-  },[]);
+  },['init']);
 
   return (
     <Fragment>

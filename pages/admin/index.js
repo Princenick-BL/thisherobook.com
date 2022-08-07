@@ -11,7 +11,7 @@ function Dashboard() {
 
   useEffect(()=>{
     Router.replace("/admin/articles")
-  },[])
+  },['init'])
   return (
     <Loading/>
   )

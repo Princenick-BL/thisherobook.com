@@ -12,7 +12,7 @@ export default function StoriesWidget() {
         const res = await getTopStories()
         setStories(res.data)
       })();
-    },[])
+    },['init'])
 
     return (
       <div className={styles.container}>

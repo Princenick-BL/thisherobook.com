@@ -31,7 +31,7 @@ export default function Articles({category}) {
       const res = await getArticleByCat(cat)
       setArticles(res.data)
     })();
-  },[])
+  },['init'])
 
 
 

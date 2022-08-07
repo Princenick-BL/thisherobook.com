@@ -44,7 +44,7 @@ export default function Home() {
       const res2 = await getStories()
       setStories(res2.data)
     })();
-  },[])
+  },['init'])
 
   useEffect(()=>{
     if(articles?.length > 0){

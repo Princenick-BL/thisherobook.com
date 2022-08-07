@@ -29,7 +29,7 @@ export default function WebStories({category}) {
       const res = await getStoriesByCat(cat)
       setArticles(res.data)
     })();
-  },[])
+  },['init'])
 
 
 

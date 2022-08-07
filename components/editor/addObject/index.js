@@ -132,9 +132,9 @@ export default function AddObject() {
                                     <input type={"text"} placeholder='Search ?'/>
                                 </div>
                                 <div className={styles.mediasContent}>
-                                    {medias && medias?.map((file)=>{
+                                    {medias && medias?.map((file,index)=>{
                                         return(
-                                            <div className={styles.img}>
+                                            <div className={styles.img} key={index}>
                                                 <Image
                                                     loader={myLoader}
                                                     src={file?.url}
