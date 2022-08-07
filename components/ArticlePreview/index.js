@@ -7,8 +7,9 @@ import ReadMoreReact from 'read-more-react';
 export default class ArticlePreview extends Component {
   render() {
     return (
-      <div className={styles.item}>
+      <div className={this.props.type == 2 ?  styles.item1 : styles.item} >
         <a href={`/${this.props.article?.category?.toLowerCase()}/article/${this.props.article?._id}/${this.props.article?.slug}`} className={styles.card}>
+          <div className={styles.thumb} style={{backgroundImage: `url(${this.props.article?.poster})`}}></div>
           <article>
             <div className={styles.head}>
               <div className={styles.icon}>
@@ -19,11 +20,8 @@ export default class ArticlePreview extends Component {
                 <h4>{`${this.props.article?.title}`}</h4>
               </div>
             </div>
-            
             <p>{`${this.props.article?.description}`}</p>
-
           </article>
-          <div className={styles.thumb} style={{backgroundImage: `url(${this.props.article?.poster})`}}></div>
         </a>
       </div>
     )

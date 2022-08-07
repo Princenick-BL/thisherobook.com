@@ -106,13 +106,15 @@ export default function Home() {
                   <ArticlePreview article={mainArticle} type={1}/>
                 </div>
               )}
-              {articles1?.map((article,index)=>{
-                return(
-                  <div key={index}>
-                    <ArticlePreview article={article} key={index} type={2}/>
-                  </div>
-                )
-              })}
+              <div className={styles.wrapper1Item}>
+                {articles1?.map((article,index)=>{
+                  return(
+                    <div key={index} >
+                      <ArticlePreview article={article} key={index} type={2}/>
+                    </div>
+                  )
+                })}
+              </div>
              
             </div>
             <StoriesWidget/>
@@ -120,7 +122,7 @@ export default function Home() {
               {articles2?.map((article,index)=>{
                 return(
                   <div key={index}>
-                   <ArticlePreview article={article} key={index} type={2}/>
+                   <ArticlePreview article={article} key={index} type={3}/>
                   </div>
                 )
               })}

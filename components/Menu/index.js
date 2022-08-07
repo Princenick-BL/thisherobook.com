@@ -7,7 +7,7 @@ export function HomeMenu() {
     const [show,setShow] = useState(false)
 
     return (
-        <div className={styles.header}>
+        <div className={styles.header + " header"}>
             <div className={styles.head}>
                 <div className={styles.button} onClick={(e)=>setShow(true)}>
                     <div>
@@ -18,7 +18,12 @@ export function HomeMenu() {
                     </div>
                 </div>
                 <div className={styles.content}>
-                    <h1>LuxeStoryBlog</h1>
+                    <h1>{`</Discover AI`}</h1>
+                    <ul>
+                        <li><a href='#'>ARTICLES</a></li>
+                        <li><a href='#'>STORIES</a></li>
+                        <li><a href='#'>NEWSLETTER</a></li>
+                    </ul>
                 </div>
             </div>
             {show &&
@@ -41,12 +46,7 @@ export function HomeMenu() {
                                     <Link href={"/"} >
                                         <a className="ampstart-nav-link">Articles</a>
                                     </Link>
-                                    <ul> 
-                                        <li><a href="#">Mission</a></li>
-                                        <li><a href="#">History</a></li>
-                                        <li><a href="#">Organization</a></li>
-                                        <li><a href="#">Board</a></li>
-                                    </ul>
+                                    
                                 </li>
                                 <li className="ampstart-nav-item" onClick={(e)=>{setShow(false)}}>
                                     <Link href={"/"} >
