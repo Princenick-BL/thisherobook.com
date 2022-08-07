@@ -9,7 +9,7 @@ import {
     PlaySquareOutlined
 } from '@ant-design/icons';
 import { useArticleContext } from '../../../contexts/article.context';
-import { getFiles } from '../../../services/files';
+import { getFiles } from '../../../services/files-editor';
 import Image from 'next/image';
 
 const myLoader = ({ src, width, quality }) => {

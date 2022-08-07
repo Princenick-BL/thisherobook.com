@@ -2,19 +2,13 @@ import React,{Fragment,useEffect,useState} from 'react'
 import Head from 'next/head'
 import styles from './index.module.scss'
 import Image from 'next/image'
-import { getSection } from '../../utils/article.utils'
-import BlogHead from '../../components/editor/BlogHead'
-import HeaderEditor from '../../utils/HeaderEditor'
-import AddObject from '../../components/editor/addObject'
-import MyMedias from '../../components/editor/MyMedias'
-import { DragDropContext, Droppable, Draggable,resetServerContext } from 'react-beautiful-dnd';
-import Focusable from '../../components/editor/Focusable'
-import { useArticleContext } from '../../contexts/article.context'
-import withAuth from "../../middleware/withAuth";
+import BlogHead from '../../../components/editor/BlogHead'
+import { useArticleContext } from '../../../contexts/article.context'
+import withAuth from "../../../middleware/withAuth";
 import { useRouter } from 'next/router'
 import { CaretRightOutlined } from '@ant-design/icons';
 import { Collapse } from 'antd';
-import { getStory } from '../../services/stories'
+import { getStory } from '../../../services/stories-editor'
 const { Panel } = Collapse;
 import { Upload } from 'antd';
 import ImgCrop from 'antd-img-crop';
