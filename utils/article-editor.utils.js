@@ -1,4 +1,4 @@
-import { SECTION_TYPE } from "../constant"
+import { SECTION_TYPE } from "../constants"
 import Image from "next/image"
 import styles from './index.module.scss'
 import Editor from './TextEditor'
