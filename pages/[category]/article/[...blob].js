@@ -43,6 +43,7 @@ export default function Article({article,canonical}) {
                                 >{`Updated at : ${new Date(article?.updatedAt).toLocaleDateString()}`}</time>
                             </address>
                             <amp-img
+                                data-hero=""
                                 src={article?.poster}
                                 width="1280"
                                 height="853"

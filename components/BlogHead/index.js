@@ -11,9 +11,9 @@ export default function BlogHead({poster,publishedAt,description,title,location}
       <meta name="description" content={description}/>
       <link rel="canonical" href={location}/>
       <link rel="preload" href={poster} as="image"/>
-      <link rel="preconnect dns-prefetch" href="https://fonts.gstatic.com/" crossOrigin/>
+      <link rel="preconnect dns-prefetch" href="https://fonts.gstatic.com/" crossOrigin=""/>
       <link rel="apple-touch-icon" href="/favicon.ico"></link>
-      <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet"/>
+      <link href={`https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=optional`} rel="stylesheet"/>
       <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"  ></script>
       <style
         amp-custom=""
