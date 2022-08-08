@@ -44,7 +44,7 @@ function Statistics() {
       <Fragment>
         {!isSignedIn ? (
           <>
-            <h1>Google Analytics Dashboard</h1>
+            <h4>Google Analytics Dashboard</h4>
             <ButtonContainer>
               <div id="signin-button"></div>
             </ButtonContainer>

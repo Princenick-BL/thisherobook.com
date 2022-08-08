@@ -14,7 +14,6 @@ function Admin() {
 
   const router = useRouter()
   const { admin } = router.query;
-
   return (
     <AdminLayout>
         {getTab(admin)}

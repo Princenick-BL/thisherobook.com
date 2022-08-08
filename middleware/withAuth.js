@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import Loading from "../components/Loading";
+import Loading from "../components/WaitingPage";
 import {Fragment} from 'react'
 import jwtDecode from 'jwt-decode';
 

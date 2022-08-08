@@ -17,11 +17,13 @@ import { useRouter } from 'next/router';
 import { useGlobalContext } from '../contexts/global.context';
 import {GlobalProvider} from '../contexts/global.context'
 import {ArticleProvider} from '../contexts/article.context'
+import Logo from './icons/logo'
 
 const { Header, Sider, Content } = Layout;
 
 const App = ({children}) => {
 
+  
   const [collapsed, setCollapsed] = useState(true);
   const {state,dispatch} = useGlobalContext()
 
@@ -33,7 +35,23 @@ const App = ({children}) => {
 
   }
 
+
   const router = useRouter()
+  const { admin } = router.query;
+
+  const getCurrentMenu = () =>{
+    switch (admin) {
+      case "articles":
+        return 2 
+      case "web-stories":
+        return 3
+      case "analytics":
+        return 4   
+      default:
+        return 2
+    }
+  }
+
   const redirect = (dest) =>{
     router.push(dest)
   }
@@ -46,25 +64,35 @@ const App = ({children}) => {
            key={1}
             theme="light"
             mode="inline"
-            defaultSelectedKeys={['1']}
+            defaultSelectedKeys={['2']}
             defaultOpenKeys={['sub1']}
+            selectedKeys={`'${getCurrentMenu()}'`}
             style={{height:"100%"}}
             items={[
+              {
+                key: 1,
+                icon: <Logo /> ,
+                label: 'ADMIN',
+                onClick  : (e)=>redirect("/admin"),
+                style : {marginTop:"20px",marginBottom:"20px"}
+
+
+              },
                 {
-                  key: '1',
+                  key: '2',
                   icon: <ReadOutlined /> ,
                   label: 'Articles',
                   onClick  : (e)=>redirect("/admin/articles")
 
                 },
                 {
-                  key: '2',
+                  key: '3',
                   label: 'Web Stories',
                   icon: <WebStory/>,
                   onClick  : (e)=>redirect("/admin/web-stories")
                 },
                 {
-                  key: '3',
+                  key: '4',
                   label: 'Analytics',
                   icon: <GoogleAnalyticsIcon/>,
                   onClick  : (e)=>redirect("/admin/analytics")
@@ -133,11 +161,11 @@ const App = ({children}) => {
 };
 
 
-function LayoutComponent() {
+function LayoutComponent({children}) {
   return (
     <GlobalProvider>
         <ArticleProvider>
-            <App/>
+            <App children={children}/>
         </ArticleProvider>
     </GlobalProvider>
   )

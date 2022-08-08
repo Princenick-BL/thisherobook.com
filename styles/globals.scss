@@ -311,3 +311,12 @@ a {
 .ampstart-nav-item{
 	font-weight: bold;
 }
+
+.ant-spin-nested-loading{
+	height: calc(100% - 100px);
+    max-height:calc(100% - 100px) ;
+	overflow-y: scroll;
+	padding-right: 1rem;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}

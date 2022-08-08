@@ -20,14 +20,13 @@ export default function WebStory() {
   return (
     <Fragment>
       <div className={styles.top}>
-        <h1>Web Stories</h1>
+        <h4>Web Stories</h4>
         <AddNew/>
       </div>
       <List
         className={styles.list}
         itemLayout="vertical"
         size="small "
-        
         pagination={{
             onChange: (page) => {
                 console.log(page);
@@ -48,7 +47,7 @@ export default function WebStory() {
                         src={item?.poster}
                     />  
                     <div className={styles.desc}>
-                        <h2>{item.title}</h2>
+                        <h5>{item.title}</h5>
                         <p>{item.description}</p>
                     </div>
 
@@ -60,11 +59,11 @@ export default function WebStory() {
             
         )}
       />
-      <br></br>
+      {/* <br></br>
       <div className={styles.top}>
         <h1>Stories</h1>
         <AddNew/>
-      </div>
+      </div> */}
     </Fragment>
   )
 }

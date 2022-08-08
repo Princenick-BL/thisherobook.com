@@ -15,6 +15,7 @@ export default function BlogHead({poster,publishedAt,description,title,location}
       <link rel="apple-touch-icon" href="/favicon.ico"></link>
       <link rel="preload" href={`https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=optional`} as="style"/>
       <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"  ></script>
+      <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
       <style
         amp-custom=""
         dangerouslySetInnerHTML={{

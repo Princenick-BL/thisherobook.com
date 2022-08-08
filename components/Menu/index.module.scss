@@ -68,10 +68,9 @@
                     overflow: hidden; /* Ensures the content is not revealed until the animation */
                     white-space: nowrap; /* Keeps the content on a single line */
                     margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-                    border-right: .15em solid orange; /* The typwriter cursor */
+                    //border-right: .15em solid orange; /* The typwriter cursor */
                     font-size: 1.5rem;
-                    animation: typewriter 4s steps(44) 1s 1 normal both,
-                    blinkTextCursor 500ms steps(44) infinite normal;
+                    //animation: typewriter 4s steps(44) 1s 1 normal both, blinkTextCursor 500ms steps(44) infinite normal;
                 }
                 /* Animation */
                 

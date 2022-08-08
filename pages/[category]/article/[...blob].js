@@ -4,6 +4,8 @@ import styles from './index.module.scss'
 import { getSection } from '../../../utils/article.utils'
 import axios from 'axios'
 import { config as endpoint } from '../../../constants'
+import * as gtag from '../../../lib/gtag'
+
 //import RedisCache from '../../../seoOpt/cache'
 
 export const config = { amp: true };
@@ -24,6 +26,30 @@ export default function Article({article,canonical}) {
                 publishedAt={article?.updatedAt}
                 location = {canonical}
             />
+            <amp-analytics type="gtag" data-credentials="include">
+                <script type="application/json"
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                            {
+                                "vars": {
+                                    "gtag_id": "${gtag?.UA_TRACKING_ID}",
+                                    "config": {
+                                        "${gtag?.UA_TRACKING_ID}": "general"
+                                    }
+                                },
+                                "triggers": {
+                                    "pageView": { 
+                                      "on": "visible",
+                                      "request": "pageview"
+                                    }     
+                                }
+                            }
+                        `,
+                      }}
+                >
+                    
+                </script>
+            </amp-analytics>
             <Fragment>
                
                 <ArticleHeader/>
@@ -31,6 +57,8 @@ export default function Article({article,canonical}) {
                 <Menu/>
 
                 <main id="content" role="main">
+
+                    
                     <br></br>
                     <article className="recipe-article">
                         <header>

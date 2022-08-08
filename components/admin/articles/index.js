@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import { List, Avatar, Space } from 'antd';
-import { getArticles } from '../../../services/articles';
+import { getArticles } from '../../../services/articles-editor';
 import styles from './index.module.scss'
 import AddNew from './AddNew';
 
@@ -20,7 +20,7 @@ export default function Articles() {
   return (
     <Fragment>
       <div className={styles.top}>
-        <h1>Articles</h1>
+        <h4>Articles</h4>
         <AddNew/>
       </div>
       <List
@@ -48,7 +48,7 @@ export default function Articles() {
                         src={item?.poster}
                     />  
                     <div className={styles.desc}>
-                        <h2>{item.title}</h2>
+                        <h5>{item.title}</h5>
                         <p>{item.description}</p>
                     </div>
 
@@ -60,11 +60,11 @@ export default function Articles() {
             
         )}
       />
-      <br></br>
+      {/* <br></br>
       <div className={styles.top}>
         <h1>Articles</h1>
         <AddNew/>
-      </div>
+      </div> */}
     </Fragment>
   )
 }

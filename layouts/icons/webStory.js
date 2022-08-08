@@ -4,7 +4,7 @@ import img from './amp-web-stories.png'
 
 export default function WebStory() {
   return (
-    <div style={{marginRight : "10px"}}>
+    <div style={{width:"14px",height:"40px",maxWidth:"25px",marginRight:"10px",display:"flex",justifyContent:"center",alignItems:"center"}}>
         <Image
             src={img}
             width={14}

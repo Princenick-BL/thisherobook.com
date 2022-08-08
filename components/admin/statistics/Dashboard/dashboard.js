@@ -22,14 +22,15 @@ import { Tabs } from 'antd';
 const { TabPane } = Tabs;
 
 const DashBoard = () => {
-  const [viewID, setViewID] = useState("3813582667");
+  const [viewID, setViewID] = useState(process.env.NEXT_PUBLIC_ANALYTICS_VUE_ID);
   const [startDate, setStartDate] = useState(addDays(new Date(), -10));
   const [endDate, setEndDate] = useState(new Date());
   return (
     <div className={styles.container}>
       {viewID ? (
         <>
-          <h1 style={{display:"flex",alignItems:"center"}}><GoogleAnalyticsIcon/> Google Analytics Dashboard</h1>
+          <h4 style={{display:"flex",alignItems:"center"}}><GoogleAnalyticsIcon/> Google Analytics Dashboard</h4>
+          <br></br>
           <div className={styles.datePicker}>
             <DatepickerRow>
               <CustomDatePicker

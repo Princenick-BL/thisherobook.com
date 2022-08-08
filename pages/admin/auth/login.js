@@ -68,7 +68,6 @@ function Login() {
 
                 <form onSubmit={(e)=>{login(e)}}>
                 
-                    <div style={{display:"flex",flexDirection:"column",justifyContent:"center",width:"100%",alignItems:"center"}}>
                         <input className={styles.inputText} type={"text"} placeholder='Identifiant' onChange={(e)=>{setLoginId(e.target.value)}}/>
                         <div className={styles.inputPassword}>
                             <input className={styles.input} type={showPass? "text": "password"} placeholder='Mot de pass' onChange={(e)=>{setLoginPwd(e.target.value)}}/>
@@ -81,7 +80,6 @@ function Login() {
                         </div>
                         <br></br>
                         <input type={"submit"} className={styles.submitBtn} />
-                    </div>
                     
                 </form>
             </div>
