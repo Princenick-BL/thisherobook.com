@@ -6,6 +6,7 @@ import Menu from '../../../components/Menu'
 import { getSection } from '../../../utils/article.utils'
 import axios from 'axios'
 import { config as endpoint } from '../../../constants'
+import RedisCache from '../../../seoOpt/cache'
 
 export const config = { amp: true };
 const BlogHead = dynamic(()=>import('../../../components/BlogHead'))
@@ -89,24 +90,20 @@ export async function getServerSideProps(context) {
     const {blob}  = query
     const articleId = blob[0]
 
-    const result = await axios.get(`${endpoint.API_ENDPOINT}/article/${articleId}`)
+    const fetcher = async ( )=>{
+        const result = await axios.get(`${endpoint.API_ENDPOINT}/article/${articleId}`)
+        return result.data?.data
+    }
+
 
     const canonical =  context?.req?.url
 
-    if(result?.data?.success){
-        return { 
-            props: {
-                article : result.data?.data,
-                canonical : canonical || ""
-            } 
-        }
-    }
-    // Pass data to the page via props
-
     return { 
         props: {
-            article : {},
-            canonical : ""
+            article : await RedisCache.fetch(`article-${articleId}`,fetcher,3600 * 24) || {},
+            canonical : canonical || ""
         } 
     }
+    
+    
   }
