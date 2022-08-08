@@ -1,21 +1,21 @@
 import React,{Fragment,useEffect,useState} from 'react'
-import Head from 'next/head'
+import dynamic from 'next/dynamic'
 import styles from './index.module.scss'
 import { ArticleHeader } from '../../../components/Header'
 import Menu from '../../../components/Menu'
-import BlogHead from '../../../components/BlogHead'
 import { getSection } from '../../../utils/article.utils'
 import axios from 'axios'
 import { config as endpoint } from '../../../constants'
 
 export const config = { amp: true };
+const BlogHead = dynamic(()=>import('../../../components/BlogHead'))
 
 export default function Article({location,article}) {   
 
     return (
         <Fragment>
             
-            <BlogHead
+            {/* <BlogHead
                 title = {article?.title}
                 poster={article?.poster}
                 description={article?.description}
@@ -76,7 +76,9 @@ export default function Article({location,article}) {
                     </nav>
                     <small> © Your Company, 2016 </small>
                 </footer>
-            </Fragment>
+            </Fragment> */}
+
+            HELLO WORLD
             
         </Fragment>
     )
