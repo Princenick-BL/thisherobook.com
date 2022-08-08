@@ -2113,10 +2113,10 @@ export default function BlogHead({poster,publishedAt,description,title,location}
           "@type": "BlogPosting",
           "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": ${location}
+            "@id": "${location}"
           },
-          "headline": ${description},
-          "image": ${poster},  
+          "headline": "${description}",
+          "image": "${poster}",  
           "author": {
             "@type": "Person",
             "name": "Prince Nick BALLO",
@@ -2130,7 +2130,7 @@ export default function BlogHead({poster,publishedAt,description,title,location}
               "url": ""
             }
           },
-          "datePublished": ${publishedAt}
+          "datePublished":"${publishedAt}"
         }
         `
       }}>

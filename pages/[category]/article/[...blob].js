@@ -91,9 +91,7 @@ export async function getServerSideProps(context) {
 
     const result = await axios.get(`${endpoint.API_ENDPOINT}/article/${articleId}`)
 
-    const canonical =  context?.req?.headers?.referer
-
-    //console.log(context,canonical)
+    const canonical =  context?.req?.url
 
     if(result?.data?.success){
         return { 
