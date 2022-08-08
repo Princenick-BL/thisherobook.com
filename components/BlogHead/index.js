@@ -3,7 +3,7 @@ import Head from 'next/head'
 
 
 export default function BlogHead({poster,publishedAt,description,title,location}) {
-    
+
   return (
     <Head>
       <title>{title}</title>
@@ -2105,16 +2105,35 @@ export default function BlogHead({poster,publishedAt,description,title,location}
         }}
       ></style>
       
-      <script type="application/ld+json">
-      {`{
-          "@context": "http://schema.org",
-          "@type": "NewsArticle",
-          "headline":  ${description},
-          "datePublished": ${publishedAt} ,
-          "image": [
-              ${poster}
-          ]
-      }`}
+      <script type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: `
+        {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": ${location}
+          },
+          "headline": ${description},
+          "image": ${poster},  
+          "author": {
+            "@type": "Person",
+            "name": "Prince Nick BALLO",
+            "url": "https://princenickballo.fr"
+          },  
+          "publisher": {
+            "@type": "Organization",
+            "name": "Nickscorp",
+            "logo": {
+              "@type": "ImageObject",
+              "url": ""
+            }
+          },
+          "datePublished": ${publishedAt}
+        }
+        `
+      }}>
       </script>
     </Head>
   )

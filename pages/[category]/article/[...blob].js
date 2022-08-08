@@ -10,7 +10,7 @@ import { config as endpoint } from '../../../constants'
 export const config = { amp: true };
 const BlogHead = dynamic(()=>import('../../../components/BlogHead'))
 
-export default function Article({location,article}) {   
+export default function Article({article,canonical}) {   
 
     return (
         <Fragment>
@@ -20,7 +20,7 @@ export default function Article({location,article}) {
                 poster={article?.poster}
                 description={article?.description}
                 publishedAt={article?.updatedAt}
-                location = {location}
+                location = {canonical}
             />
             <Fragment>
                
@@ -85,22 +85,21 @@ export default function Article({location,article}) {
 export async function getServerSideProps(context) {
     // Fetch data from external API
     
-    const { req, query, res, asPath, pathname } = context;
+    const {query,headers} = context;
     const {blob}  = query
     const articleId = blob[0]
 
-
-    if (req) {
-      var host = req.headers.referer // will give you localhost:3000
-    }
-
     const result = await axios.get(`${endpoint.API_ENDPOINT}/article/${articleId}`)
+
+    const canonical =  context?.req?.headers?.referer
+
+    //console.log(context,canonical)
 
     if(result?.data?.success){
         return { 
             props: {
-                location : host || "",
-                article : result.data?.data
+                article : result.data?.data,
+                canonical : canonical || ""
             } 
         }
     }
@@ -108,7 +107,8 @@ export async function getServerSideProps(context) {
 
     return { 
         props: {
-            location : host || "",
+            article : {},
+            canonical : ""
         } 
     }
   }
