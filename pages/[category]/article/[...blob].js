@@ -15,7 +15,7 @@ export default function Article({location,article}) {
     return (
         <Fragment>
             
-            {/* <BlogHead
+            <BlogHead
                 title = {article?.title}
                 poster={article?.poster}
                 description={article?.description}
@@ -76,9 +76,7 @@ export default function Article({location,article}) {
                     </nav>
                     <small> © Your Company, 2016 </small>
                 </footer>
-            </Fragment> */}
-
-            HELLO WORLD
+            </Fragment>
             
         </Fragment>
     )
