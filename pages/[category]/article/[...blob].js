@@ -14,17 +14,13 @@ export default function Article({location,article}) {
 
     return (
         <Fragment>
-            <Head>
-                <meta charSet="utf-8"/>
-                <title>Hello, AMPs</title>
-                <link rel="canonical" href={location}/>
-                <link rel="preload" href={article?.poster} as="image"/>
-
-            </Head>
+            
             <BlogHead
+                title = {article?.title}
                 poster={article?.poster}
                 description={article?.description}
                 publishedAt={article?.updatedAt}
+                location = {location}
             />
             <Fragment>
                
