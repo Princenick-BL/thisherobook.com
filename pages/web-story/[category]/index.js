@@ -94,7 +94,7 @@ export default function Articles({stories}) {
   )
 }
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
   // Fetch data from external API
   
   const res = await getStories()
