@@ -1,8 +1,26 @@
 .banner{
-  height: 35vh;
+  height: 30vh;
   background-image: url("https://picsum.photos/1200/300");
   background-size: cover;
   background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  .search{
+    width: 70%;
+    padding: 1rem;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    border-radius: 50px;
+    border: 1px solid #f3f3f3;
+    font-size: 1rem;
+    margin-top: 40px;
+    @media only screen and (max-width: 500px) {
+      width: 90%;
+       // display: none;
+    }
+}
 }
 
 .main{

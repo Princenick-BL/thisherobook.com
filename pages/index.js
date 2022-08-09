@@ -81,7 +81,7 @@ export default function Home() {
         <div className={ styles.containerLight }>
           <Menu/>
           <div className={styles.banner}>
-
+            <input className={styles.search} type={"search"} placeholder="Search ..."/>
           </div>
           <main className={styles.main}>
 

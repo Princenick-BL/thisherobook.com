@@ -57,6 +57,10 @@ export default function Articles({articles}) {
               {/* <br></br>
               <input className={"searchInput"} type={"search"} placeholder='Search ...'/>
               <br></br> */}
+              <br></br>
+              <br></br>
+              <br></br>
+
               <div className={styles.flex}>
                 <h3> Articles</h3>
               </div>

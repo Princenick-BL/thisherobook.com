@@ -19,7 +19,10 @@ body {
 .bodyLight{
 	.header{
 		//background-color: #fff;
-		border-bottom: 1px solid #f3f3f3;
+		//border-bottom: 1px solid #f3f3f3;
+	}
+	.headerFill{
+		background-color: #fff;
 	}
 }
 ::-webkit-scrollbar-track {

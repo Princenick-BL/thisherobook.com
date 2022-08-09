@@ -3,12 +3,12 @@ import Link from 'next/link'
 import styles from './index.module.scss'
 import Logo from '../Logo'
 
-export function HomeMenu() {
+export function HomeMenu({fill=true}) {
 
     const [show,setShow] = useState(false)
 
     return (
-        <div className={styles.header + " header"}>
+        <div className={styles.header + " header" +(fill ? " headerFill" : "")}>
             <div className={styles.head}>
                 <div className={styles.button} onClick={(e)=>setShow(true)}>
                     <div>
@@ -44,7 +44,6 @@ export function HomeMenu() {
                             </Link>
                         </li>
                     </ul>
-                    <input className={styles.search} type={"search"} placeholder="Search ..."/>
 
                 </div>
             </div>
