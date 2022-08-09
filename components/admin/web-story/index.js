@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useState } from 'react'
 import { List, Avatar, Space } from 'antd';
 import styles from './index.module.scss'
 import AddNew from './AddNew';
-import { getStories } from '../../../services/stories';
+import { getStories } from '../../../services/stories-editor';
 
 
 

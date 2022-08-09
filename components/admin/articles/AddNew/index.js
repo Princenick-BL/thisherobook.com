@@ -3,7 +3,7 @@ import styles from './index.module.scss'
 import {
     CloseOutlined
 } from '@ant-design/icons';
-import { postArticle } from '../../../../services/articles';
+import { postArticle } from '../../../../services/articles-editor';
 import { useRouter } from 'next/router';
 
 export default function AddNew() {
