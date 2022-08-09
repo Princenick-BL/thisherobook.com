@@ -18,13 +18,16 @@ export default function Home() {
   const [mainArticle,setMainArticle] =  useState([])
   const [articles1,setArticles1] =  useState([])
   const [articles2,setArticles2] =  useState([])
+  const [hasNext,setHasnext]= useState(false)
   const router = useRouter()
 
 
   useEffect(()=>{
     (async ()=>{
       const res = await getTopArticles()
-      setArticles([...res?.data,...res?.data,...res?.data,...res?.data].splice(0,11))
+      const data = [...res?.data,...res?.data,...res?.data,...res?.data]
+      setArticles(data.splice(0,11))
+      setHasnext(data?.length > 0)
     })();
   },['init'])
 
@@ -117,7 +120,7 @@ export default function Home() {
             <Pagination
               url={"/article"}
               current={1}
-              hasNext={true}
+              hasNext={hasNext}
             />
           </main>
 

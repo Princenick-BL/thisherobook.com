@@ -13,10 +13,12 @@ import Loading from '../../Loading'
 import { useRouter } from 'next/router'
 import Script from 'next/script'
 import * as gtag from '../../lib/gtag'
+import Pagination from '../../components/Pagination'
 
-export default function Articles({stories}) {
+export default function Articles({stories,hasNext}) {
 
   const router = useRouter()
+  const {page} = router?.query
 
   useEffect(() => {
     const handleRouteChange = (url) => {
@@ -79,6 +81,11 @@ export default function Articles({stories}) {
                   <Loading/>
                 )}
                 </div>
+                <Pagination
+                  url={"/web-story"}
+                  current={page ? parseInt(page) : 1}
+                  hasNext={hasNext}
+                />
           </main>
 
           <footer className="ampstart-footer flex flex-column items-center px3">
@@ -106,10 +113,14 @@ export async function getStaticProps(context) {
   // Fetch data from external API
   
   const res = await getStories()
+  const data = res?.data
+  const stories = data?.splice(0,12)
 
   return { 
       props: {
-        stories : res?.data || []
+        stories : stories || [],
+        hasNext : data?.length > 0
+
       } 
   }
 }

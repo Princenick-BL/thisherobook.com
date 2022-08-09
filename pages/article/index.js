@@ -10,7 +10,7 @@ import Script from 'next/script'
 import * as gtag from '../../lib/gtag'
 import Pagination from '../../components/Pagination'
 
-export default function Articles({articles}) {
+export default function Articles({articles,hasNext}) {
 
   const router = useRouter()
   const {page} = router?.query
@@ -80,7 +80,7 @@ export default function Articles({articles}) {
                 <Pagination
                   url={"/article"}
                   current={page ? parseInt(page) : 1}
-                  hasNext={true}
+                  hasNext={hasNext}
                 />
           </main>
 
@@ -109,10 +109,13 @@ export async function getStaticProps(context) {
   // Fetch data from external API
   
   const res = await getArticle()
+  const data = res?.data
+  const articles = data?.splice(0,12)
 
   return { 
       props: {
-        articles : res?.data || []
+        articles : articles || [],
+        hasNext : data?.length > 0
       } 
   }
 }

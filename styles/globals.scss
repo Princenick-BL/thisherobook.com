@@ -18,8 +18,8 @@ body {
 }
 .bodyLight{
 	.header{
-		//background-color: #fff;
-		//border-bottom: 1px solid #f3f3f3;
+		background-color: #fff;
+		border-bottom: 1px solid #f3f3f3;
 	}
 	.headerFill{
 		background-color: #fff;
@@ -290,8 +290,10 @@ a {
 .ampstart-footer {
 	background-color: #fff;
 	color: #000;
-	padding-top: 5rem;
-	padding-bottom: 5rem;
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+	border-top: 1px solid #f3f3f3;
+	margin-top: 2rem;
 }
 .ampstart-footer .ampstart-icon {
 	fill: #000;
