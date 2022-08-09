@@ -1,37 +1,17 @@
 import React,{useState,useEffect,Suspense}  from 'react'
 import Head from 'next/head'
-import Image from 'next/image'
 import styles from '../../../styles/Home.module.scss'
-import { getStoriesByCat } from '../../../services/stories'
-import {
-  FireOutlined,
-  TabletOutlined
-} from '@ant-design/icons';
-import BlogHead from '../../../components/BlogHead'
-import {ArticleHeader} from '../../../components/Header'
-import {HomeMenu as Menu} from '../../../components/Menu'
-import Loading from '../../../Loading'
-import PlayerWidget from '../../../components/PlayerWidget'
+import StoryPreview from '../../components/StoryPreview'
+import { getStories } from '../../services/stories'
+import {HomeMenu as Menu} from '../../components/Menu'
+import Loading from '../../Loading'
 import { useRouter } from 'next/router'
 import Script from 'next/script'
-import * as gtag from '../../../lib/gtag'
-import Link from 'next/link'
+import * as gtag from '../../lib/gtag'
 
-export default function WebStories({category}) {
+export default function Articles({stories}) {
 
-  const [articles,setArticles] =  useState([])
   const router = useRouter()
-  const cat = category.charAt(0).toUpperCase()+category.substring(1)
-
-
-  useEffect(()=>{
-    (async ()=>{
-      const res = await getStoriesByCat(cat)
-      setArticles(res.data)
-    })();
-  },['init'])
-
-
 
   useEffect(() => {
     const handleRouteChange = (url) => {
@@ -72,32 +52,25 @@ export default function WebStories({category}) {
         <div className={styles.container}>
           <Menu/>
           <main className={styles.main}>
-            <div className={styles.articles + " "+styles.mTop}>
               {/* <br></br>
               <input className={"searchInput"} type={"search"} placeholder='Search ...'/>
               <br></br> */}
-              <h3 className={styles.h3}> <FireOutlined /> &nbsp;  Stories</h3>
-              <div className={styles.articleList}>
-                {articles && articles.length >0 ? articles?.map((article,index)=>{
+              <div className={styles.flex}>
+                <h3> Stories</h3>
+              </div>
+              <br></br>
+              <div className={styles.wrapper2}>
+                
+                { stories?.length >0 ? stories?.map((article,index)=>{
                   return(
-                    <div  
-                        key={index}
-                        className={styles.player}>
-                        <PlayerWidget
-                          title={"Consectetur aute non incididunt esse Lorem dolore mollit occaecat elit."}
-                          img={article?.poster || "https://picsum.photos/360/370"}
-                          logo={"https://picsum.photos/50/50"}
-                          url={`/${category}/web-story/${article?._id}/${article?.slug}`}
-                          category={article?.category}
-                        />
-                      </div>
-                    
+                    <div key={index}>
+                      <StoryPreview article={article} type={3}/>
+                    </div> 
                   )
                 }):(
                   <Loading/>
                 )}
                 </div>
-            </div>
           </main>
 
           <footer className="ampstart-footer flex flex-column items-center px3">
@@ -121,17 +94,14 @@ export default function WebStories({category}) {
   )
 }
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
   // Fetch data from external API
   
-  const { req, query, res, asPath, pathname } = context;
-  const {category}  = query
-
-  // Pass data to the page via props
+  const res = await getStories()
 
   return { 
       props: {
-        category : category
+        stories : res?.data || []
       } 
   }
 }

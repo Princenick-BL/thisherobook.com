@@ -19,6 +19,14 @@ $width : 150px;
         background-size: cover;
         margin-right: 1rem;
     }
+    .moreStories{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #f3f3f3;
+        text-align: center;
+        padding: 1rem;
+    }
     
 }
 .container{

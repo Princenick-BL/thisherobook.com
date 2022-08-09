@@ -44,8 +44,8 @@ export default function Home() {
           src="https://cdn.ampproject.org/v0/amp-video-0.1.js"
         />
         <link rel="preconnect" href="https://fonts.googleapis.com"/>
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin/>
-        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet"></link>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin=""
+        />
        
       </Head>
 

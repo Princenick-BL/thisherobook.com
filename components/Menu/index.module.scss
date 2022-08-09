@@ -60,6 +60,7 @@
                 overflow:hidden;
                 text-overflow:ellipsis;
                 min-width: max-content;
+                cursor: pointer;
                 @media only screen and (max-width: 500px) {
                     margin-left: -51px;
                 }
@@ -87,6 +88,10 @@
                 }
                 li{
                     margin-left: 2rem;
+                    clear: both;
+                    display: inline-block;
+                    overflow: hidden;
+                    white-space: nowrap;
                 }
             }
             .search{

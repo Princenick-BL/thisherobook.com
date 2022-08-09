@@ -1,48 +1,30 @@
-import React,{useState,useEffect,Suspense}  from 'react'
+import React,{useState,useEffect}  from 'react'
 import Head from 'next/head'
-import Image from 'next/image'
 import styles from '../styles/Home.module.scss'
 import ArticlePreview from '../components/ArticlePreview'
-import StoryPreview from '../components/StoryPreview'
 import { getTopArticles } from '../services/articles'
-import { getTopStories,getStories } from '../services/stories'
-import {
-  FireOutlined,
-  TabletOutlined
-} from '@ant-design/icons';
-import BlogHead from '../components/BlogHead'
-import {ArticleHeader} from '../components/Header'
 import {HomeMenu as Menu} from '../components/Menu'
-import Loading from '../Loading'
 import StoriesWidget from '../components/StoriesWidget'
-import PlayerWidget from '../components/PlayerWidget'
 import { useRouter } from 'next/router'
 import Script from 'next/script'
 import * as gtag from '../lib/gtag'
-import Link from 'next/link'
-import {useGlobalContext} from '../GlobalContext'
-import {THEME} from '../constants'
-import TopicCluster from '../components/TopicCluster'
+import Pagination from '../components/Pagination'
 
 
 
 export default function Home() {
 
   const [articles,setArticles] =  useState([])
-  const [stories,setStories] =  useState([])
   const [mainArticle,setMainArticle] =  useState([])
   const [articles1,setArticles1] =  useState([])
   const [articles2,setArticles2] =  useState([])
   const router = useRouter()
-  const {state,dispatch} = useGlobalContext()
 
 
   useEffect(()=>{
     (async ()=>{
       const res = await getTopArticles()
-      setArticles([...res?.data,...res?.data,...res?.data,...res?.data])
-      const res2 = await getStories()
-      setStories(res2.data)
+      setArticles([...res?.data,...res?.data,...res?.data,...res?.data].splice(0,11))
     })();
   },['init'])
 
@@ -98,6 +80,9 @@ export default function Home() {
         />
         <div className={ styles.containerLight }>
           <Menu/>
+          <div className={styles.banner}>
+
+          </div>
           <main className={styles.main}>
 
             <div className={styles.supportGrid}></div>
@@ -128,6 +113,12 @@ export default function Home() {
                 )
               })}
             </div>
+
+            <Pagination
+              url={"/article"}
+              current={1}
+              hasNext={true}
+            />
           </main>
 
           <footer className="ampstart-footer flex flex-column items-center px3">

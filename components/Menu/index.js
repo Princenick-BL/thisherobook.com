@@ -19,14 +19,30 @@ export function HomeMenu() {
                     </div>
                 </div>
                 <div className={styles.content}>
-                    <div className={styles.flexCenter}>
-                        <Logo/>
-                        <h1>{`iscover AI`}</h1>
-                    </div>
+                    <Link href={"/"} >
+                        <div className={styles.flexCenter}>
+                            <Logo/>
+                            <h1>{`iscover AI`}</h1>
+                        </div>
+                    </Link>
+                    
                     <ul>
-                        <li><a href='#'>ARTICLES</a></li>
-                        <li><a href='#'>STORIES</a></li>
-                        <li><a href='#'>NEWSLETTER</a></li>
+                        <li>
+                            <Link href={"/article"}>
+                                <a>ARTICLES</a>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link href={"/web-story"}>
+                                <a>WEB STORIES</a>
+                            </Link>   
+                        </li>  
+                                                      
+                        <li>
+                            <Link href={"/newsletter"}>
+                                <a>NEWSLETTER</a>
+                            </Link>
+                        </li>
                     </ul>
                     <input className={styles.search} type={"search"} placeholder="Search ..."/>
 
@@ -44,18 +60,18 @@ export function HomeMenu() {
                             <nav className="ampstart-sidebar-nav ampstart-nav">
                             <ul className="list-reset m0 p0 ampstart-label">
                                 <li className="ampstart-nav-item" onClick={(e)=>{setShow(false)}}>
-                                    <Link href={"/"} >
+                                    <Link href={"/article"} >
                                         <a className="ampstart-nav-link">Articles</a>
                                     </Link>
                                 </li>
                                 <li className="ampstart-nav-item" onClick={(e)=>{setShow(false)}}>
-                                    <Link href={"/"} >
-                                        <a className="ampstart-nav-link">Stories</a>
+                                    <Link href={"/web-stories"} >
+                                        <a className="ampstart-nav-link">Web Stories</a>
                                     </Link>
                                     
                                 </li>
                                 <li className="ampstart-nav-item" onClick={(e)=>{setShow(false)}}>
-                                    <Link href={"/"} >
+                                    <Link href={"/newsletter"} >
                                         <a className="ampstart-nav-link">NEWSLETTER</a>
                                     </Link>
                                 </li>

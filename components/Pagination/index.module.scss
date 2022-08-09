@@ -1,0 +1,19 @@
+.container{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-direction: row-reverse;
+    margin-top: 2rem;
+    .subContainer{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        a{
+            font-weight: bold;
+        }
+        .current{
+            margin: 0 1rem;
+        }
+    }
+}
