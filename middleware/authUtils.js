@@ -1,5 +1,5 @@
 const initAuth = () => {
-  const CLIENT_ID = '939442197161-3jls09pfttcnh9g41ufbn2fgrqiqdib0.apps.googleusercontent.com';
+  const CLIENT_ID = process.env.NEXT_PUBLIC_OAUTH;
   return window.gapi.auth2.init({
     client_id: CLIENT_ID,
     scope: "https://www.googleapis.com/auth/analytics.readonly",
