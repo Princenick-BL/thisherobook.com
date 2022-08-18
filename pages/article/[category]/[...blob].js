@@ -56,19 +56,20 @@ export default function Article({article,canonical,social}) {
 
                 <Menu/>
                 <main id="content" role="main">
-
+                    
                     <div className='ads-zone'>
-    
-                        <amp-ad 
-                            width="300" 
-                            height="320"
-                            type="adsense"
-                            data-ad-client="ca-pub-5455960452945884"
-                            data-ad-slot="8779494525"
-                            data-auto-format="rspv"
-                            data-full-width="">
-                            <div overflow=""></div>
-                        </amp-ad>
+                        {social && (
+                            <amp-ad 
+                                width="300" 
+                                height="320"
+                                type="adsense"
+                                data-ad-client="ca-pub-5455960452945884"
+                                data-ad-slot="8779494525"
+                                data-auto-format="rspv"
+                                data-full-width="">
+                                <div overflow=""></div>
+                            </amp-ad>
+                        )}
                         {/* <amp-ad
                             type="a9"
                             data-amzn_assoc_ad_mode="auto"
@@ -144,15 +145,17 @@ export default function Article({article,canonical,social}) {
                         )}
                     </article>
                     <div className='ads-zone'>
-                        {/* <amp-ad 
-                            width={300} 
-                            height={200}
-                            type="adsense"
-                            layout="responsive"
-                            data-ad-client="ca-pub-8125901705757971"
-                            data-ad-slot="7783467241"
-                            data-ad-format="auto">
-                        </amp-ad> */}
+                        {social && (
+                            {/* <amp-ad 
+                                width={300} 
+                                height={200}
+                                type="adsense"
+                                layout="responsive"
+                                data-ad-client="ca-pub-8125901705757971"
+                                data-ad-slot="7783467241"
+                                data-ad-format="auto">
+                            </amp-ad> */}
+                        )}
                     </div>
                 </main>
                 <footer className="ampstart-footer flex flex-column items-center px3">
@@ -185,16 +188,25 @@ export async function getServerSideProps(context) {
     const articleId = blob[0]
 
     const fetcher = async ( )=>{
-        const result = await axios.get(`${endpoint.API_ENDPOINT}/article/${articleId}`)
-        return result.data?.data
+        try{
+            const result = await axios.get(`${endpoint.API_ENDPOINT}/article/${articleId}`)
+            return result.data?.data
+        }catch(e){
+            return null
+        }
     }
 
 
     const canonical =  context?.req?.url
     //const article = await RedisCache.fetch(`article-${articleId}`,fetcher,3600 * 24) || {}
-    const article = await fetcher() || {}
+    const article = await fetcher() 
 
-    //console.log("article",article)
+   
+    if (!article ) { 
+        return {
+          notFound: true,
+        }
+    }
 
     return { 
         props: {

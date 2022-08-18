@@ -12,8 +12,6 @@ export default function BlogHead({poster,publishedAt,description,title,location}
         <link rel="canonical" href={location}/>
         <link rel="preload" as="image" href={poster} />
         <link rel="apple-touch-icon" href="/favicon.ico"></link>
-        <link rel="preconnect" href="https://fonts.googleapis.com"></link>
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin></link>
         <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet"></link>
         <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
         <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"  ></script>

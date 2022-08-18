@@ -14,9 +14,9 @@ export function HomeMenu({fill=true}) {
                     <div>
                         ☰
                     </div>
-                    <div className={styles.text}>
+                    {/* <div className={styles.text}>
                         MENU
-                    </div>
+                    </div> */}
                 </div>
                 <div className={styles.content}>
                     <Link href={"/"} >
