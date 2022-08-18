@@ -16,7 +16,7 @@ export default function ArticleHeader(){
             >
                 ☰
             </div>
-            <h1 className="webpage-logo">LuxeStoryBlog</h1>
+            <h1 className="webpage-logo">Discoverai</h1>
             
         </header>
 

@@ -4,12 +4,7 @@ import Image from 'next/image'
 
 export default function ArticlePreview({article,type}) {
 
-  const [size,setSize]=useState(
-    {
-      width:200*16/9, 
-      height : 200
-    }
-  )
+
 
   return (
     <div className={type == 2 ?  styles.item1 : styles.item} >
@@ -21,16 +16,8 @@ export default function ArticlePreview({article,type}) {
             <Image 
               className={styles.thumb}
               src={article?.poster}
-              height={size.height }
-              width={size.width }
-              onLoad={(e) =>{ 
-                if(e.naturalWidth && e.naturalHeight){
-                  setSize({
-                    width : e.naturalWidth,
-                    height : e.naturalHeight
-                  })
-                }
-              }}
+              height={article?.meta?.height }
+              width={article?.meta?.width }
               layout={"responsive"}
               style={{minWidth:"150px"}}
             />

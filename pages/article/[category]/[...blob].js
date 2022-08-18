@@ -58,17 +58,16 @@ export default function Article({article,canonical,social}) {
                 <main id="content" role="main">
 
                     <div className='ads-zone'>
+    
                         <amp-ad 
-                            width={300} 
-                            height={200}
-                            style={{maxWidth:"100%",height:"100vh"}}
+                            width="300" 
+                            height="320"
                             type="adsense"
-                            data-ad-client="ca-pub-2005682797531342"
-                            data-ad-slot="7046626912"
-                            data-adtest="on">
-                                <div placeholder=''>
-                                    No ads
-                                </div>
+                            data-ad-client="ca-pub-5455960452945884"
+                            data-ad-slot="8779494525"
+                            data-auto-format="rspv"
+                            data-full-width="">
+                            <div overflow=""></div>
                         </amp-ad>
                         {/* <amp-ad
                             type="a9"
@@ -101,7 +100,7 @@ export default function Article({article,canonical,social}) {
                         <header>
                             <span className="ampstart-subtitle block px3 pt2 mb2">{article?.category}</span>
                             <h1 className="mb2 px3 fsh1">{article?.title}</h1>
-                            <address className="ampstart-byline clearfix mb1 px3 h5">
+                            <address className="ampstart-byline clearfix mb4 px3 h5">
                                 <time
                                     style={{overflow :"hidden",fontSize:"1rem"}}
                                     className="ampstart-byline-pubdate block bold mb2"
@@ -111,8 +110,8 @@ export default function Article({article,canonical,social}) {
                             <amp-img
                                 data-hero=""
                                 src={article?.poster}
-                                width="1280"
-                                height="853"
+                                width={article?.meta?.width || "1280"}
+                                height={article?.meta?.height || "853"}
                                 layout="responsive"
                                 alt="The final spritzer"
                                 className="mb4 mx3 br5"
@@ -145,7 +144,7 @@ export default function Article({article,canonical,social}) {
                         )}
                     </article>
                     <div className='ads-zone'>
-                        <amp-ad 
+                        {/* <amp-ad 
                             width={300} 
                             height={200}
                             type="adsense"
@@ -153,7 +152,7 @@ export default function Article({article,canonical,social}) {
                             data-ad-client="ca-pub-8125901705757971"
                             data-ad-slot="7783467241"
                             data-ad-format="auto">
-                        </amp-ad>
+                        </amp-ad> */}
                     </div>
                 </main>
                 <footer className="ampstart-footer flex flex-column items-center px3">
@@ -194,6 +193,8 @@ export async function getServerSideProps(context) {
     const canonical =  context?.req?.url
     //const article = await RedisCache.fetch(`article-${articleId}`,fetcher,3600 * 24) || {}
     const article = await fetcher() || {}
+
+    //console.log("article",article)
 
     return { 
         props: {

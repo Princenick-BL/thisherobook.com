@@ -15,7 +15,7 @@ const ArticleReducer = (state,action) =>{
     const sections = state?.article?.sections
     var section = null
     
-    //console.log(action?.payload)
+    console.log(action?.payload)
     
     if(sections && pos!==null){
         section = sections[pos];
@@ -73,7 +73,6 @@ const ArticleReducer = (state,action) =>{
 
         case 'patch-image-dim':
 
-            console.log("1",value?.width ,"&", value?.height)
 
             if(section && value?.width && value?.height){
                 section.meta.width = value?.width;
@@ -93,7 +92,8 @@ const ArticleReducer = (state,action) =>{
                 title,
                 category,
                 poster,
-                description
+                description,
+                posterSize
             } = value;
 
 
@@ -102,13 +102,17 @@ const ArticleReducer = (state,action) =>{
                 state.article.title = title
                 state.article.category  = category
                 state.article.poster  = poster
+                state.article.meta = posterSize || {}
                 state.article.description = description
                 state.article.slug = title.toLowerCase()
                 .trim()
                 .replace(/[^\w\s-]/g, '')
                 .replace(/[\s_-]+/g, '-')
-                .replace(/^-+|-+$/g, '');
+                .replace(/^-+|-+$/g, '')
+                .replace("'", '-');
             }
+
+
 
             return {
                 ...state,

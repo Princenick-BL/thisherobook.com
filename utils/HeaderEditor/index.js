@@ -16,6 +16,7 @@ export default function HeaderEditor(props) {
     const [category,setCategory] = useState(props?.category)
     const [selectedFile, setSelectedFile] = useState()
     const [preview, setPreview] = useState(props?.poster)
+    const [size,setSize] = useState({})
 
     const onSelectFile = async (e ) => {
 
@@ -63,7 +64,8 @@ export default function HeaderEditor(props) {
                     title : title,
                     description : description,
                     category : category,
-                    poster : poster
+                    poster : poster,
+                    posterSize : size
                 }
             }
         })
@@ -156,8 +158,15 @@ export default function HeaderEditor(props) {
                     {props?.poster &&
                         <Image
                             src={props?.poster}
-                            width="1280"
-                            height="853"
+                            onLoad={({ target }) => {
+                                const { naturalWidth, naturalHeight } = target ;
+                                setSize({
+                                    width:naturalWidth,
+                                    height:naturalHeight
+                                })
+                            }}
+                            width={size?.width || "1280"}
+                            height={size?.height || "853"}
                             layout="responsive"
                             alt="The final spritzer"
                             className={styles.img}

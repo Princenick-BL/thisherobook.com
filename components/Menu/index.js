@@ -22,7 +22,6 @@ export function HomeMenu({fill=true}) {
                     <Link href={"/"} >
                         <div className={styles.flexCenter}>
                             <Logo/>
-                            <h1>{`iscover AI`}</h1>
                         </div>
                     </Link>
                     
