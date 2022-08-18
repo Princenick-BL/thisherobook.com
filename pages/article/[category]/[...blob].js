@@ -5,6 +5,7 @@ import { getSection } from '../../../utils/article.utils'
 import axios from 'axios'
 import { config as endpoint } from '../../../constants'
 import * as gtag from '../../../lib/gtag'
+import router from 'next/router'
 //import RedisCache from '../../../seoOpt/cache'
 
 export const config = { amp: true };
@@ -13,8 +14,7 @@ const BlogHead = dynamic(()=>import('../../../components/BlogHead'))
 const ArticleHeader = dynamic(()=>import('../../../components/Header'))
 const Menu = dynamic(()=>import('../../../components/Menu'))
 
-export default function Article({article,canonical}) {   
-
+export default function Article({article,canonical,social}) {   
     
     return (
         <Fragment>
@@ -124,22 +124,25 @@ export default function Article({article,canonical}) {
                                 return getSection(section)
                             })}
                         </div>
-                        <div className='mb1 mx3 br5'>
-                            <br></br>
-                            <br></br>
-                            <br></br>
-                            <amp-embed
-                                type="taboola"
-                                width="400"
-                                height="300"
-                                layout="responsive"
-                                data-publisher="amp-demo"
-                                data-mode="thumbnails-a"
-                                data-placement="Ads Example"
-                                data-article="auto"
-                                >
-                            </amp-embed>
-                        </div>
+                        {social && (
+                            <div className='mb1 mx3 br5'>
+                                <br></br>
+                                <br></br>
+                                <br></br>
+                                <amp-embed
+                                    type="taboola"
+                                    width="400"
+                                    height="300"
+                                    layout="responsive"
+                                    data-publisher="amp-demo"
+                                    data-mode="thumbnails-a"
+                                    data-placement="Ads Example"
+                                    data-article="auto"
+                                    >
+                                </amp-embed>
+                            </div>
+
+                        )}
                     </article>
                     <div className='ads-zone'>
                         <amp-ad 
@@ -178,8 +181,8 @@ export default function Article({article,canonical}) {
 export async function getServerSideProps(context) {
     // Fetch data from external API
     
-    const {query,headers} = context;
-    const {blob}  = query
+    const {query,headers,params} = context;
+    const {blob,social}  = query
     const articleId = blob[0]
 
     const fetcher = async ( )=>{
@@ -195,7 +198,8 @@ export async function getServerSideProps(context) {
     return { 
         props: {
             article : article,
-            canonical : canonical || ""
+            canonical : canonical || "",
+            social : social || null
         } 
     }
     

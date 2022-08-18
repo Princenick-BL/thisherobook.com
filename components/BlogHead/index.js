@@ -1234,7 +1234,7 @@ export default function BlogHead({poster,publishedAt,description,title,location}
           .ampstart-footer {
               background-color: #fff;
               color: #000;
-              padding-top: 5rem;
+              padding-top: 2rem;
               padding-bottom: 5rem;
           }
           .ampstart-footer .ampstart-icon {
