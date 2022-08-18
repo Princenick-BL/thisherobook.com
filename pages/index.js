@@ -25,7 +25,7 @@ export default function Home() {
   useEffect(()=>{
     (async ()=>{
       const res = await getTopArticles()
-      const data = [...res?.data,...res?.data,...res?.data,...res?.data]
+      const data = res?.data
       setArticles(data.splice(0,11))
       setHasnext(data?.length > 0)
     })();

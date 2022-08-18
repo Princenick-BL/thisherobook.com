@@ -52,7 +52,7 @@ export default function WebStory() {
                     </div>
 
                 </div>
-                <div className={styles.button}><a target={"_blank"} rel="noreferrer" href={`/story-editor?key=`+item?._id}>
+                <div className={styles.button}><a target={"_blank"} rel="noreferrer" href={`/admin/story-editor?key=`+item?._id}>
                 Edit
                 </a></div>
             </div>

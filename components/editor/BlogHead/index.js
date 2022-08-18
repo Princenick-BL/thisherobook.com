@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import Head from 'next/head'
 import styles from './index.module.scss'
 import {
@@ -12,6 +12,7 @@ import { patchArticle } from '../../../services/articles-editor';
 export default function BlogHead() {
 
   const {state,dispatch} = useArticleContext()
+  const [click,setClicked] = useState(false)
 
   const handleSave = async (e) =>{
     const res =  await patchArticle(state?.article);
@@ -36,10 +37,10 @@ export default function BlogHead() {
       <div>DRAFT</div>
       <div className={styles.right}>
         <div className="sec-center"> 	
-          <input className="dropdown" type="checkbox" id="dropdown" name="dropdown"/>
+          <input className="dropdown" type="checkbox" id="dropdown" name="dropdown" checked={click} onChange={(e)=>{setClicked(e?.target?.value)}}/>
           <label className="for-dropdown" htmlFor="dropdown">Actions <i className="uil uil-arrow-down"></i></label>
           <div className="section-dropdown"> 
-            <button onClick={(e)=>{handleSave(e)}}>Save <i className="uil uil-arrow-right"></i></button>
+            <button onClick={(e)=>{handleSave(e);setClicked(false)}}>Save <i className="uil uil-arrow-right"></i></button>
             <button>Publish<i className="uil uil-arrow-right"></i></button>
           </div>
         </div>

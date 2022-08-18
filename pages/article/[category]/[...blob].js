@@ -1,11 +1,11 @@
-import React,{Fragment,useEffect,useState} from 'react'
+import React,{Fragment,useState,useEffect,useRef} from 'react'
 import dynamic from 'next/dynamic'
 import styles from './index.module.scss'
 import { getSection } from '../../../utils/article.utils'
 import axios from 'axios'
 import { config as endpoint } from '../../../constants'
 import * as gtag from '../../../lib/gtag'
-
+import AdsBox from '../../../components/AdsBox'
 //import RedisCache from '../../../seoOpt/cache'
 
 export const config = { amp: true };
@@ -16,6 +16,7 @@ const Menu = dynamic(()=>import('../../../components/Menu'))
 
 export default function Article({article,canonical}) {   
 
+    
     return (
         <Fragment>
             
@@ -55,11 +56,48 @@ export default function Article({article,canonical}) {
                 <ArticleHeader/>
 
                 <Menu/>
-
                 <main id="content" role="main">
 
+                    <div className='ads-zone'>
+                        <amp-ad 
+                            width={300} 
+                            height={200}
+                            style={{maxWidth:"100%",height:"100vh"}}
+                            type="adsense"
+                            data-ad-client="ca-pub-2005682797531342"
+                            data-ad-slot="7046626912"
+                            data-adtest="on">
+                                <div placeholder=''>
+                                    No ads
+                                </div>
+                        </amp-ad>
+                        {/* <amp-ad
+                            type="a9"
+                            data-amzn_assoc_ad_mode="auto"
+                            data-divid="amzn-assoc-ad-fe746097-f142-4f8d-8dfb-45ec747632e5"
+                            data-recomtype="async"
+                            data-adinstanceid="fe746097-f142-4f8d-8dfb-45ec747632e5"
+                            width="300"
+                            height="250"
+                            data-aax_size="300x250"
+                            data-aax_pubname="test123"
+                            data-aax_src="302"
+                            >
+                        </amp-ad> */}
+
+                        {/* <amp-ad
+                            width="300"
+                            height="250"
+                            type="industrybrains"
+                            sticky="bottom"
+                            data-width="300"
+                            data-height="250"
+                            data-cid="19626-3798936394"
+                            >
+                        </amp-ad> */}
+
+                    </div>
                     
-                    <br></br>
                     <article className="recipe-article">
                         <header>
                             <span className="ampstart-subtitle block px3 pt2 mb2">{article?.category}</span>
@@ -87,10 +125,35 @@ export default function Article({article,canonical}) {
                                 return getSection(section)
                             })}
                         </div>
-                    
+                        <div className='mb1 mx3 br5'>
+                            <br></br>
+                            <br></br>
+                            <br></br>
+                            <amp-embed
+                                type="taboola"
+                                width="400"
+                                height="300"
+                                layout="responsive"
+                                data-publisher="amp-demo"
+                                data-mode="thumbnails-a"
+                                data-placement="Ads Example"
+                                data-article="auto"
+                                >
+                            </amp-embed>
+                        </div>
                     </article>
+                    <div className='ads-zone'>
+                        <amp-ad 
+                            width={300} 
+                            height={200}
+                            type="adsense"
+                            layout="responsive"
+                            data-ad-client="ca-pub-8125901705757971"
+                            data-ad-slot="7783467241"
+                            data-ad-format="auto">
+                        </amp-ad>
+                    </div>
                 </main>
-
                 <footer className="ampstart-footer flex flex-column items-center px3">
                     <nav className="ampstart-footer-nav">
                         <ul className="list-reset flex flex-wrap mb3">

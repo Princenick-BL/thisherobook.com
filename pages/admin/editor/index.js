@@ -12,7 +12,8 @@ import { useArticleContext } from '../../../contexts/article.context'
 import withAuth from "../../../middleware/withAuth";
 import { getArticle } from '../../../services/articles-editor'
 import { useRouter } from 'next/router'
-
+import {GlobalProvider} from '../../../contexts/global.context'
+import {ArticleProvider} from '../../../contexts/article.context'
 //export const config = { amp: true };
 
 
@@ -77,7 +78,7 @@ export  function Article({location}) {
       <Fragment>
           <Head>
               <meta charSet="utf-8"/>
-              <title>Hello, AMPs</title>
+              <title>Article editor</title>
               <link rel="canonical" href={location}/>
           </Head>
           <BlogHead/>
@@ -148,4 +149,14 @@ export  function Article({location}) {
   )
 }
 
-export default withAuth(Article);
+function ArticleEditor() {
+  return (
+    <GlobalProvider>
+        <ArticleProvider>
+            <Article/>
+        </ArticleProvider>
+    </GlobalProvider>
+  )
+}
+
+export default withAuth(ArticleEditor);

@@ -775,6 +775,12 @@ export default function BlogHead({poster,publishedAt,description,title,location}
               display: flex;
               }
           }
+          @media (max-width: 600px) {
+            .ads-zone {
+             display: none;
+            }
+        }
+          
           @media (min-width: 52.06rem) {
               .md-flex {
               display: flex;
@@ -1003,8 +1009,15 @@ export default function BlogHead({poster,publishedAt,description,title,location}
               -webkit-font-smoothing: antialiased;
           }
           main {
-              max-width: 700px;
-              margin: 0 auto;
+              display: flex;
+          }
+          .recipe-article{
+            max-width: 700px;
+            margin: 0 auto;
+            width: 100%;
+          }
+          .ads-zone{
+            width : 20%;
           }
           p {
               padding: 0;
