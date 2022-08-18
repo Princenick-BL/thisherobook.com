@@ -5,7 +5,6 @@ import { getSection } from '../../../utils/article.utils'
 import axios from 'axios'
 import { config as endpoint } from '../../../constants'
 import * as gtag from '../../../lib/gtag'
-import AdsBox from '../../../components/AdsBox'
 //import RedisCache from '../../../seoOpt/cache'
 
 export const config = { amp: true };
