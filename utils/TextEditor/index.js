@@ -79,7 +79,7 @@ export default function Editor({children,edit,index}) {
     return (
         <>
             {edit ? (
-                <QuillNoSSRWrapper className={styles.edit} value={children} modules={modules} formats={formats} theme="snow"onChange={(e)=>{handleChange(e)}} />
+                <QuillNoSSRWrapper className={styles.edit} value={children} modules={modules} formats={formats} theme="snow" onChange={(e)=>{handleChange(e)}} />
             ):(
                 <p className={styles.defaultText}>
                     <div> { ReactHtmlParser (children) } </div>

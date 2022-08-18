@@ -5,7 +5,7 @@ import Link from 'next/link'
 export default function ArticleHeader(){
     return(
         <header
-            className="webpage-articleHeader ampstart-headerbar fixed flex justify-start items-center top-0 left-0 right-0 pl2 pr4"
+            className="webpage-articleHeader ampstart-headerbar fixed flex justify-start items-center top-0 left-0 right-0 pl2 pr2"
         >
             <div
                 role="button"

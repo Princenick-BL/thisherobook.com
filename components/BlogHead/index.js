@@ -1710,7 +1710,7 @@ export default function BlogHead({poster,publishedAt,description,title,location}
             
             p{
                 line-height : 1.8;
-                font-size : 1.1rem;
+                font-size : 1.3rem;
             } 
             .webpage-logo{
                 color:#253022;

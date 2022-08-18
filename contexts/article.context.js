@@ -15,7 +15,7 @@ const ArticleReducer = (state,action) =>{
     const sections = state?.article?.sections
     var section = null
     
-    console.log(action?.payload)
+   // console.log(action?.payload)
     
     if(sections && pos!==null){
         section = sections[pos];
