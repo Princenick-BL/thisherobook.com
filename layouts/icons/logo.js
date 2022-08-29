@@ -11,12 +11,11 @@ export default function LogoIcon() {
         display:"flex",
         justifyContent:"center",
         alignItems:"center",
-        backgroundColor:"var(--color-primary-light)",
         borderRadius : "40px",
         color:"var(--color-secondary-light)",
         fontWeight : "bold",
     }}>
-        <Logo/>
+        <Logo single={true} style={{fontSize:"2rem"}}/>
     </div>
   )
 }

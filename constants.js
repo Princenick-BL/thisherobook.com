@@ -16,7 +16,7 @@ export const categories = [
     {
         id: 1,
         color : "red",
-        name : "Cars",
+        name : "Marvel",
         description : "Elit incididunt quis minim adipisicing ea culpa dolore consectetur.",
         img : "cars.webp",
         width: 3000,

@@ -9,22 +9,24 @@ body {
   height: 100%;
 }
 .bodyDark{
-	background : linear-gradient(90deg,#434343,#434343 1px,#111 0,#111);
-	color: #fff;
-	height: 100%;
-	.header{
-		background-color: #000;
-	}
+	
 }
 .bodyLight{
-	.header{
-		background-color: #fff;
-		border-bottom: 1px solid #f3f3f3;
-	}
-	.headerFill{
-		background-color: #fff;
-	}
+	
+	
 }
+.header{
+	background-color: transparent;
+	border-bottom: none;
+	color: #fff;
+}
+
+.headerFill{
+	background-color: #fff 1000ms linear;
+	border-bottom: 1px solid #f3f3f3;
+	color: var(--color-primary-light);
+}
+
 ::-webkit-scrollbar-track {
     border-radius: 10px;
     background-color: #ccc;

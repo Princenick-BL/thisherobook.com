@@ -2,9 +2,9 @@ import React from 'react'
 
 export default function GoogleAnalyticsIcon() {
   return (
-      <div style={{width:"14px",height:"40px",maxWidth:"25px",marginRight:"10px"}}>
+      <div style={{width:"20px",height:"40px",maxWidth:"25px",marginRight:"10px"}}>
         <svg version="1.1" 
-            width="14px" height="40px" viewBox="0 0 192 192" enableBackground="new 0 0 192 192">
+            width="20px" height="40px" viewBox="0 0 192 192" enableBackground="new 0 0 192 192">
             <rect x="0" y="0" fill="none" width="192" height="192"/>
             <g>
                 <g>

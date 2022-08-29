@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Layout, Menu } from 'antd';
+import { Layout, Menu,Avatar } from 'antd';
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
@@ -18,6 +18,7 @@ import { useGlobalContext } from '../contexts/global.context';
 import {GlobalProvider} from '../contexts/global.context'
 import {ArticleProvider} from '../contexts/article.context'
 import Logo from './icons/logo'
+import { width } from '@mui/system';
 
 const { Header, Sider, Content } = Layout;
 
@@ -26,6 +27,8 @@ const App = ({children}) => {
   
   const [collapsed, setCollapsed] = useState(true);
   const {state,dispatch} = useGlobalContext()
+
+  console.log("User",state)
 
   const handlelogOut = () =>{
     dispatch({
@@ -80,7 +83,7 @@ const App = ({children}) => {
               },
                 {
                   key: '2',
-                  icon: <ReadOutlined /> ,
+                  icon: <ReadOutlined style={{ fontSize: '20px'}}/> ,
                   label: 'Articles',
                   onClick  : (e)=>redirect("/admin/articles")
 
@@ -88,7 +91,7 @@ const App = ({children}) => {
                 {
                   key: '3',
                   label: 'Web Stories',
-                  icon: <WebStory/>,
+                  icon: <WebStory style={{ fontSize: '20px'}}/>,
                   onClick  : (e)=>redirect("/admin/web-stories")
                 },
                 {
@@ -109,14 +112,34 @@ const App = ({children}) => {
             style={{position:"absolute",bottom:"0",width:"100%"}}
             items={[
                 {
+                  key: '99',
+                  icon: <SettingFilled style={{ fontSize: '20px'}}/> ,
+                  label: 'Settings',
+                },
+                {
                     key: '98',
-                    icon: <UserOutlined/> ,
+                    icon: 
+                    <Avatar 
+                      style={{ 
+                        verticalAlign: "middle",
+                        alignItems: "center",
+                        display: "flex",
+                        justifyContent: "center",
+                        width : "25px",
+                        height : "25px",
+                        marginLeft : "-3px"
+                      }} 
+                      size="large" 
+                      gap={0}
+                    >
+                      {"K"}
+                    </Avatar> ,
                     label: 'User',
                     children: [
                         { 
                             key: 'user-sub-1',
                             label: 'User', 
-                            icon : <UserOutlined/>
+                            icon : <UserOutlined />
                         },  
                         { 
                             key: 'user-sub-2',
@@ -127,11 +150,7 @@ const App = ({children}) => {
                     ],
     
                 },
-                {
-                  key: '99',
-                  icon: <SettingFilled/> ,
-                  label: 'Settings',
-                },
+                
                 {
                     key: '100',
                     icon: collapsed ? <MenuUnfoldOutlined/> : <MenuFoldOutlined/> ,

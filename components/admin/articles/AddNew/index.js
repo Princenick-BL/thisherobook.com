@@ -5,6 +5,7 @@ import {
 } from '@ant-design/icons';
 import { postArticle } from '../../../../services/articles-editor';
 import { useRouter } from 'next/router';
+import {categories} from '../../../../constants'
 
 export default function AddNew() {
 
@@ -22,7 +23,7 @@ export default function AddNew() {
         .replace(/^-+|-+$/g, '');
         const res = await postArticle({title,category,slug});
 
-        Router.push(`/editor?key=${res._id}`)
+        Router.push(`/admin/editor?key=${res._id}`)
 
     }
 
@@ -59,8 +60,11 @@ export default function AddNew() {
                             <div className={styles.field}  onChange={(e)=>{setCategory(e.target.value)}}>
                                 <label>Category</label>
                                 <select>
-                                    <option value={"Cars"}>Cars</option>
-                                    <option value={"Jewelry"}>Jewelry</option>
+                                    {categories.map((cat)=>{
+                                        return(
+                                            <option value={cat.name.toUpperCase()}>{cat.name.toUpperCase()}</option>
+                                        )
+                                    })}
                                 </select>
                             </div>
                             <br></br>

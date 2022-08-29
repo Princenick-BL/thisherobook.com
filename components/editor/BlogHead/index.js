@@ -30,7 +30,7 @@ export default function BlogHead() {
   return (       
     <nav className={styles.head}>
       <div style={{marginLeft : "1rem"}}>
-        <Link href={"/articles"}>
+        <Link href={"/admin/articles"}>
           <HomeFilled/>
         </Link>
       </div>

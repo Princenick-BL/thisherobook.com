@@ -7,8 +7,24 @@ export function HomeMenu({fill=true}) {
 
     const [show,setShow] = useState(false)
 
+    const [scrollPosition, setScrollPosition] = useState(0);
+
+    const handleScroll = () => {
+        const position = window.pageYOffset;
+        setScrollPosition(position);
+        console.log("Position",position)
+    };
+  
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll, { passive: true });
+  
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
     return (
-        <div className={styles.header + " header" +(fill ? " headerFill" : "")}>
+        <div className={styles.header + " header" +((scrollPosition > 50) ? " headerFill" : "")}>
             <div className={styles.head}>
                 <div className={styles.button} onClick={(e)=>setShow(true)}>
                     <div>
